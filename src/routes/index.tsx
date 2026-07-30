@@ -111,7 +111,7 @@ function Home() {
                   alt="Portrait of the professional ghostwriter behind The Ghostwriting Studio"
                   width={810}
                   height={1080}
-                  className="h-full w-full object-cover mix-blend-luminosity opacity-95"
+                  className="h-full w-full object-cover"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-primary/70 via-transparent to-transparent" />
                 <p className="absolute bottom-5 left-6 font-display text-lg text-primary-foreground">
