@@ -36,7 +36,7 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ProfessionalService",
-          name: "The Ghostwriting Studio",
+          name: "Mercy Writing Bureau",
           description:
             "Professional book ghostwriting, developmental editing and publishing support for fiction and nonfiction authors.",
           serviceType: "Ghostwriting and book editing services",
@@ -108,7 +108,7 @@ function Home() {
               <div className="relative overflow-hidden bg-primary">
                 <img
                   src={portrait.url}
-                  alt="Portrait of the professional ghostwriter behind The Ghostwriting Studio"
+                  alt="Portrait of the professional ghostwriter behind Mercy Writing Bureau"
                   width={810}
                   height={1080}
                   className="h-full w-full object-cover"

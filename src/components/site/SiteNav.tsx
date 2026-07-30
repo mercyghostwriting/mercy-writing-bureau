@@ -36,7 +36,7 @@ export function SiteNav() {
         className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 lg:px-8"
       >
         <Link to="/" className="font-display text-xl tracking-tight text-foreground">
-          The Ghostwriting Studio
+          Mercy Writing Bureau
           <span className="ml-1 text-accent">.</span>
         </Link>
 

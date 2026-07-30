@@ -40,7 +40,7 @@ function About() {
               <div className="relative overflow-hidden border border-border bg-secondary/40 p-3">
                 <img
                   src={portrait.url}
-                  alt="Portrait of the ghostwriter behind The Ghostwriting Studio"
+                  alt="Portrait of the ghostwriter behind Mercy Writing Bureau"
                   className="h-full w-full object-cover"
                 />
               </div>
