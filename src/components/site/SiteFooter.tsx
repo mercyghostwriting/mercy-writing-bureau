@@ -7,7 +7,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 lg:grid-cols-4 lg:px-8">
         <div className="lg:col-span-2 lg:pr-12">
           <p className="font-display text-2xl">
-            The Ghostwriting Studio<span className="text-accent">.</span>
+            Mercy Writing Bureau<span className="text-accent">.</span>
           </p>
           <p className="mt-4 max-w-md text-sm leading-relaxed text-primary-foreground/70">
             A professional ghostwriting and book editing service for authors, entrepreneurs,
@@ -58,7 +58,7 @@ export function SiteFooter() {
 
       <div className="border-t border-primary-foreground/15">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-6 text-xs text-primary-foreground/60 sm:flex-row sm:items-center sm:justify-between lg:px-8">
-          <p>© {new Date().getFullYear()} The Ghostwriting Studio. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Mercy Writing Bureau. All rights reserved.</p>
           <p className="space-x-5">
             <Link to="/privacy" className="hover:text-accent">
               Privacy Policy

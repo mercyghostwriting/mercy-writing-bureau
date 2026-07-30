@@ -84,7 +84,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Professional book ghostwriting, editing, and publishing support for authors, entrepreneurs, coaches, and publishers.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "The Ghostwriting Studio" },
+      { property: "og:site_name", content: "Mercy Writing Bureau" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
