@@ -16,7 +16,7 @@ const schema = z.object({
     .min(20, "Please describe your project in at least 20 characters")
     .max(2000, "Please keep the description under 2000 characters"),
   nda: z.string().optional(),
-  consent: z.literal("on", { message: "Please confirm consent before submitting" }).optional(),
+  consent: z.string().optional(),
 });
 
 const SERVICES = [
