@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { CONTACT_EMAIL, services } from "@/data/content";
+import { CONTACT_EMAIL, SOCIAL_LINKS, services } from "@/data/content";
 
 export function SiteFooter() {
   return (
