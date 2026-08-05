@@ -1,10 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import portrait from "@/assets/portrait.jpg";
+import deskPhoto from "@/assets/mercy-desk.jpg";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { PortfolioGrid } from "@/components/site/PortfolioGrid";
-import { ContactForm } from "@/components/site/ContactForm";
-import { benefits, faqs, processSteps, services, testimonials, trustBar } from "@/data/content";
+import { services, trustBar } from "@/data/content";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -47,16 +47,14 @@ export const Route = createFileRoute("/")({
 });
 
 function Section({
-  id,
   children,
   className = "",
 }: {
-  id?: string;
   children: React.ReactNode;
   className?: string;
 }) {
   return (
-    <section id={id} className={`px-5 py-20 lg:px-8 lg:py-28 ${className}`}>
+    <section className={`px-5 py-20 lg:px-8 lg:py-28 ${className}`}>
       <div className="mx-auto max-w-6xl">{children}</div>
     </section>
   );
@@ -86,15 +84,13 @@ function Home() {
               </p>
               <div className="mt-9 flex flex-wrap gap-3">
                 <Link
-                  to="/"
-                  hash="contact"
+                  to="/contact"
                   className="rounded-sm bg-primary px-7 py-3.5 text-[0.78rem] font-medium tracking-[0.16em] text-primary-foreground uppercase transition-colors hover:bg-accent"
                 >
                   Discuss Your Book
                 </Link>
                 <Link
-                  to="/"
-                  hash="portfolio"
+                  to="/portfolio"
                   className="rounded-sm border border-foreground/25 px-7 py-3.5 text-[0.78rem] font-medium tracking-[0.16em] text-foreground uppercase transition-colors hover:border-accent hover:text-accent"
                 >
                   View My Portfolio
@@ -130,14 +126,14 @@ function Home() {
           </div>
         </section>
 
-        {/* ABOUT */}
-        <Section id="about">
+        {/* ABOUT TEASER */}
+        <Section>
           <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
             <div className="relative">
               <div className="overflow-hidden border border-border bg-secondary/40 p-3">
                 <img
-                  src={portrait}
-                  alt="The ghostwriter, photographed in a studio setting"
+                  src={deskPhoto}
+                  alt="The ghostwriter behind Mercy Writing Bureau at work on a client manuscript"
                   loading="lazy"
                   className="h-full w-full object-cover"
                 />
@@ -158,18 +154,7 @@ function Home() {
                 <p>
                   I work closely with clients to develop the idea, shape a structure that carries
                   the reader from first page to last, capture the way they actually speak and think,
-                  and produce a polished manuscript that sounds unmistakably like them. Nothing is
-                  outsourced to a template and nothing leaves my desk before it reads well aloud.
-                </p>
-                <p>
-                  My experience spans both fiction and nonfiction ghostwriting — business and
-                  leadership books, memoir and autobiography, personal development, mystery,
-                  thriller, romance, and other selected genres. Every project is treated as
-                  confidential by default, and full ownership of the finished work is yours.
-                </p>
-                <p className="text-sm text-foreground/70 italic">
-                  [Editable placeholder: add years of experience, number of completed books,
-                  qualifications and any verified credentials here.]
+                  and produce a polished manuscript that sounds unmistakably like them.
                 </p>
               </div>
               <Link
@@ -182,8 +167,8 @@ function Home() {
           </div>
         </Section>
 
-        {/* SERVICES */}
-        <Section id="services" className="border-y border-border bg-secondary/40">
+        {/* SERVICES PREVIEW */}
+        <Section className="border-y border-border bg-secondary/40">
           <div className="max-w-2xl rule-line">
             <p className="eyebrow">Services</p>
             <h2 className="mt-4 font-display text-4xl leading-tight sm:text-5xl">
@@ -195,157 +180,72 @@ function Home() {
             </p>
           </div>
           <div className="mt-14 grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((s, i) => (
-              <article key={s.title} className="group bg-background p-8 transition-colors hover:bg-card">
+            {services.slice(0, 6).map((s, i) => (
+              <article key={s.title} className="bg-background p-8">
                 <p className="font-display text-2xl text-accent/70">
                   {String(i + 1).padStart(2, "0")}
                 </p>
                 <h3 className="mt-3 font-display text-2xl leading-snug">{s.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.description}</p>
-                <Link
-                  to="/"
-                  hash="contact"
-                  className="mt-6 inline-flex items-center gap-2 text-[0.75rem] tracking-[0.14em] uppercase transition-colors group-hover:text-accent"
-                >
-                  Learn More <span aria-hidden>→</span>
-                </Link>
               </article>
             ))}
           </div>
+          <Link
+            to="/services"
+            className="mt-10 inline-block rounded-sm bg-primary px-7 py-3.5 text-[0.78rem] font-medium tracking-[0.16em] text-primary-foreground uppercase transition-colors hover:bg-accent"
+          >
+            See All Nine Services
+          </Link>
         </Section>
 
-        {/* PORTFOLIO */}
-        <Section id="portfolio">
+        {/* PORTFOLIO PREVIEW */}
+        <Section>
           <div className="max-w-2xl rule-line">
             <p className="eyebrow">Featured Portfolio</p>
             <h2 className="mt-4 font-display text-4xl leading-tight sm:text-5xl">
               Selected Client Projects
             </h2>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-              Twenty project slots, ready for your verified client work. Confidential projects can
-              be shown anonymously — genre, scope and deliverables without naming the author.
+              Confidential projects can be shown anonymously — genre, scope and deliverables without
+              naming the author.
             </p>
           </div>
           <div className="mt-12">
-            <PortfolioGrid />
+            <PortfolioGrid limit={6} />
           </div>
+          <Link
+            to="/portfolio"
+            className="mt-10 inline-block rounded-sm border border-foreground/25 px-7 py-3.5 text-[0.78rem] font-medium tracking-[0.16em] uppercase transition-colors hover:border-accent hover:text-accent"
+          >
+            View Full Portfolio
+          </Link>
         </Section>
 
-        {/* PROCESS */}
-        <Section id="process" className="border-y border-border bg-primary text-primary-foreground">
+        {/* CTA */}
+        <Section className="border-t border-border bg-primary text-primary-foreground">
           <div className="max-w-2xl">
-            <p className="eyebrow">Working Process</p>
+            <p className="eyebrow">Next Step</p>
             <h2 className="mt-4 font-display text-4xl leading-tight sm:text-5xl">
-              Six Steps From Idea to Finished Manuscript
+              Let's Turn Your Idea Into a Book
             </h2>
-          </div>
-          <ol className="mt-14 grid gap-px bg-primary-foreground/15 sm:grid-cols-2 lg:grid-cols-3">
-            {processSteps.map((step, i) => (
-              <li key={step.title} className="bg-primary p-8">
-                <p className="font-display text-4xl text-accent">
-                  {String(i + 1).padStart(2, "0")}
-                </p>
-                <h3 className="mt-3 font-display text-2xl">{step.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-primary-foreground/70">
-                  {step.description}
-                </p>
-              </li>
-            ))}
-          </ol>
-        </Section>
-
-        {/* WHY WORK WITH ME */}
-        <Section>
-          <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr]">
-            <div className="rule-line">
-              <p className="eyebrow">Why Work With Me</p>
-              <h2 className="mt-4 font-display text-4xl leading-tight sm:text-5xl">
-                A Careful, Private, Collaborative Way of Working
-              </h2>
+            <p className="mt-5 text-base leading-relaxed text-primary-foreground/70">
+              Tell me about your book idea, current progress, preferred word count, and publishing
+              goals. I'll review the details and recommend the best next step.
+            </p>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <Link
+                to="/contact"
+                className="rounded-sm bg-accent px-7 py-3.5 text-[0.78rem] font-medium tracking-[0.16em] text-accent-foreground uppercase transition-opacity hover:opacity-90"
+              >
+                Start Your Project
+              </Link>
+              <Link
+                to="/process"
+                className="rounded-sm border border-primary-foreground/30 px-7 py-3.5 text-[0.78rem] font-medium tracking-[0.16em] uppercase transition-colors hover:border-accent hover:text-accent"
+              >
+                See How I Work
+              </Link>
             </div>
-            <ul className="grid gap-x-10 gap-y-5 sm:grid-cols-2">
-              {benefits.map((b) => (
-                <li key={b} className="flex gap-3 border-b border-border pb-4 text-sm leading-relaxed">
-                  <span aria-hidden className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                  {b}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Section>
-
-        {/* TESTIMONIALS */}
-        <Section id="testimonials" className="border-y border-border bg-secondary/40">
-          <div className="max-w-2xl rule-line">
-            <p className="eyebrow">Testimonials</p>
-            <h2 className="mt-4 font-display text-4xl leading-tight sm:text-5xl">
-              In My Clients' Words
-            </h2>
-          </div>
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
-            {testimonials.map((t, i) => (
-              <figure key={i} className="flex flex-col border border-border bg-card p-8">
-                <blockquote className="flex-1 font-display text-xl leading-snug text-foreground/85">
-                  “{t.quote}”
-                </blockquote>
-                <figcaption className="mt-6 flex items-center gap-3 border-t border-border pt-5">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-sm text-muted-foreground">
-                    {t.initials}
-                  </span>
-                  <span className="text-sm">
-                    <span className="block text-foreground">{t.name}</span>
-                    <span className="block text-xs text-muted-foreground">{t.projectType}</span>
-                  </span>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </Section>
-
-        {/* FAQ */}
-        <Section id="faq">
-          <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr]">
-            <div className="rule-line">
-              <p className="eyebrow">FAQ</p>
-              <h2 className="mt-4 font-display text-4xl leading-tight sm:text-5xl">
-                Questions Authors Ask Before We Begin
-              </h2>
-            </div>
-            <div className="divide-y divide-border border-y border-border">
-              {faqs.map((f) => (
-                <details key={f.q} className="group py-5">
-                  <summary className="flex cursor-pointer list-none items-start justify-between gap-6 font-display text-xl">
-                    {f.q}
-                    <span
-                      aria-hidden
-                      className="mt-1 text-accent transition-transform group-open:rotate-45"
-                    >
-                      +
-                    </span>
-                  </summary>
-                  <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-                    {f.a}
-                  </p>
-                </details>
-              ))}
-            </div>
-          </div>
-        </Section>
-
-        {/* CONTACT */}
-        <Section id="contact" className="border-t border-border bg-secondary/40">
-          <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr]">
-            <div className="rule-line">
-              <p className="eyebrow">Contact</p>
-              <h2 className="mt-4 font-display text-4xl leading-tight sm:text-5xl">
-                Let's Turn Your Idea Into a Book
-              </h2>
-              <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-                Tell me about your book idea, current progress, preferred word count, and publishing
-                goals. I'll review the details and recommend the best next step.
-              </p>
-            </div>
-            <ContactForm />
           </div>
         </Section>
       </main>
