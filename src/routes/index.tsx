@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import portrait from "@/assets/portrait.jpg.asset.json";
+import portrait from "@/assets/portrait.jpg";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { PortfolioGrid } from "@/components/site/PortfolioGrid";
@@ -107,7 +107,7 @@ function Home() {
               <div className="absolute -right-5 -bottom-5 hidden h-28 w-28 border-r border-b border-foreground/20 sm:block" />
               <div className="relative overflow-hidden bg-primary">
                 <img
-                  src={portrait.url}
+                  src={portrait}
                   alt="Portrait of the professional ghostwriter behind Mercy Writing Bureau"
                   width={810}
                   height={1080}
@@ -136,7 +136,7 @@ function Home() {
             <div className="relative">
               <div className="overflow-hidden border border-border bg-secondary/40 p-3">
                 <img
-                  src={portrait.url}
+                  src={portrait}
                   alt="The ghostwriter, photographed in a studio setting"
                   loading="lazy"
                   className="h-full w-full object-cover"
