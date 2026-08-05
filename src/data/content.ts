@@ -308,4 +308,9 @@ export const trustBar = [
   "Publishing-Ready Manuscripts",
 ];
 
-export const CONTACT_EMAIL = "[your-email@example.com]";
+export const CONTACT_EMAIL = "mercy.ghostwriting@gmaill.com";
+
+export const SOCIAL_LINKS = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/mercy-oyedele-1181803b9/" },
+  { label: "Instagram", href: "https://www.instagram.com/folashade.mercie/" },
+] as const;
