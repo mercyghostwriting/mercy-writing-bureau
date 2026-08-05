@@ -107,12 +107,17 @@ function CaseStudy() {
               <h1 className="mt-3 font-display text-4xl leading-tight sm:text-5xl">
                 {project.confidential ? "Confidential Project" : project.title}
               </h1>
+              {project.subtitle ? (
+                <p className="mt-3 font-display text-xl text-muted-foreground italic">
+                  {project.subtitle}
+                </p>
+              ) : null}
               <dl className="mt-6 grid gap-4 border-y border-border py-5 text-sm sm:grid-cols-3">
                 <div>
                   <dt className="text-xs tracking-[0.14em] text-muted-foreground uppercase">
                     Genre
                   </dt>
-                  <dd className="mt-1">{project.category}</dd>
+                  <dd className="mt-1">{project.genre ?? project.category}</dd>
                 </div>
                 <div>
                   <dt className="text-xs tracking-[0.14em] text-muted-foreground uppercase">
@@ -122,11 +127,28 @@ function CaseStudy() {
                 </div>
                 <div>
                   <dt className="text-xs tracking-[0.14em] text-muted-foreground uppercase">
-                    Word count
+                    Length
                   </dt>
                   <dd className="mt-1">{project.wordCount}</dd>
                 </div>
+                {project.author ? (
+                  <div>
+                    <dt className="text-xs tracking-[0.14em] text-muted-foreground uppercase">
+                      Author
+                    </dt>
+                    <dd className="mt-1">{project.author}</dd>
+                  </div>
+                ) : null}
+                {project.status ? (
+                  <div>
+                    <dt className="text-xs tracking-[0.14em] text-muted-foreground uppercase">
+                      Status
+                    </dt>
+                    <dd className="mt-1">{project.status}</dd>
+                  </div>
+                ) : null}
               </dl>
+
 
               <Row label="Project overview" value={project.overview} />
               <Row label="Client's objective" value={project.objective} />

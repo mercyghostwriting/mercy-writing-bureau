@@ -59,15 +59,22 @@ export function PortfolioGrid({ limit }: { limit?: number }) {
                 {p.confidential ? "Confidential Project" : p.title}
               </h3>
               <dl className="mt-3 space-y-1 text-xs text-muted-foreground">
+                {p.author ? (
+                  <div className="flex gap-2">
+                    <dt className="font-medium text-foreground/70">Author:</dt>
+                    <dd>{p.author}</dd>
+                  </div>
+                ) : null}
                 <div className="flex gap-2">
                   <dt className="font-medium text-foreground/70">Service:</dt>
                   <dd>{p.service}</dd>
                 </div>
                 <div className="flex gap-2">
-                  <dt className="font-medium text-foreground/70">Word count:</dt>
+                  <dt className="font-medium text-foreground/70">Length:</dt>
                   <dd>{p.wordCount}</dd>
                 </div>
               </dl>
+
               <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
                 {p.summary}
               </p>

@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { CONTACT_EMAIL, services } from "@/data/content";
+import { CONTACT_EMAIL, SOCIAL_LINKS, services } from "@/data/content";
 
 export function SiteFooter() {
   return (
@@ -55,12 +55,25 @@ export function SiteFooter() {
             ))}
           </ul>
           <h3 className="mt-8 text-xs tracking-[0.22em] text-accent uppercase">Contact</h3>
-          <p className="mt-4 text-sm text-primary-foreground/70">{CONTACT_EMAIL}</p>
-          <p className="mt-2 space-x-3 text-sm text-primary-foreground/70">
-            <span>[LinkedIn]</span>
-            <span>[Instagram]</span>
-            <span>[X]</span>
+          <p className="mt-4 text-sm text-primary-foreground/70">
+            <a href={`mailto:${CONTACT_EMAIL}`} className="transition-colors hover:text-accent">
+              {CONTACT_EMAIL}
+            </a>
           </p>
+          <p className="mt-2 space-x-3 text-sm text-primary-foreground/70">
+            {SOCIAL_LINKS.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="transition-colors hover:text-accent"
+              >
+                {s.label}
+              </a>
+            ))}
+          </p>
+
         </div>
       </div>
 

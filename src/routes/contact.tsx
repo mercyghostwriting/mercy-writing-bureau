@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/site/PageShell";
 import { ContactForm } from "@/components/site/ContactForm";
 import standingPhoto from "@/assets/mercy-standing.jpg";
-import { CONTACT_EMAIL } from "@/data/content";
+import { CONTACT_EMAIL, SOCIAL_LINKS } from "@/data/content";
 
 export const Route = createFileRoute("/contact")({
   component: ContactPage,
@@ -44,10 +44,29 @@ function ContactPage() {
             />
           </div>
           <p className="mt-6 text-sm text-muted-foreground">Email</p>
-          <p className="font-display text-xl">{CONTACT_EMAIL}</p>
+          <p className="font-display text-xl">
+            <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-accent">
+              {CONTACT_EMAIL}
+            </a>
+          </p>
+          <p className="mt-6 text-sm text-muted-foreground">Elsewhere</p>
+          <p className="mt-1 space-x-4 text-sm">
+            {SOCIAL_LINKS.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="underline underline-offset-4 hover:text-accent"
+              >
+                {s.label}
+              </a>
+            ))}
+          </p>
           <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
             Every enquiry is answered personally and kept confidential. NDAs available on request.
           </p>
+
         </div>
         <ContactForm />
       </div>
