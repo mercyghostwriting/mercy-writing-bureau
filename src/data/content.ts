@@ -8,6 +8,10 @@ export type Project = {
   id: string;
   internalLabel: string;
   title: string;
+  subtitle?: string;
+  author?: string;
+  genre?: string;
+  status?: string;
   category:
     | "Business"
     | "Memoir"
@@ -62,11 +66,76 @@ function makeProject(index: number): Project {
   };
 }
 
-export const projects: Project[] = Array.from({ length: 20 }, (_, i) => makeProject(i + 1));
+const numbersGame: Project = {
+  id: "project-01",
+  internalLabel: "Project 01",
+  title: "The Numbers Game!",
+  subtitle: "If the Numbers Don't Work… Neither Do You.",
+  author: "Anthony Jones",
+  genre: "Financial Education / Entrepreneurship",
+  status: "Completed and formatted for Lulu",
+  category: "Business",
+  service:
+    "Nonfiction manuscript development, editing, book organization, and publishing preparation",
+  wordCount: "15 chapters, including a conclusion and author section",
+  summary:
+    "A practical financial and business book that helps readers understand the numbers behind their income, expenses, decisions, and long-term progress. The completed manuscript contains 15 structured chapters and was edited, organized, and formatted into a professional 6 × 9 edition ready for Lulu publishing.",
+  confidential: false,
+  overview:
+    "The Numbers Game! is a financial education and personal-development book built around a straightforward principle: meaningful financial progress depends on understanding and managing the numbers behind everyday decisions. The book transforms financial concepts into structured lessons that readers can understand and apply without requiring an advanced background in finance.",
+  objective:
+    "The objective was to develop a practical and accessible book that would help readers evaluate their financial behaviour, understand how their decisions affect their results, and make more informed choices about money, work, and personal progress. The manuscript needed to feel educational without becoming overly technical or difficult to follow.",
+  scope:
+    "Nonfiction manuscript development · Content and chapter organization · Structural editing · Clarity and readability improvements · Tone and language refinement · Transition development · Chapter consistency · Front and back matter organization · 6 × 9 interior formatting · Lulu publishing preparation",
+  contribution:
+    "I helped develop and refine the book's content into a clear, properly organized manuscript. The work focused on improving the progression of ideas, strengthening explanations, maintaining a consistent voice, and ensuring that the individual chapters supported the book's central message. I also helped prepare the completed content as a professional 6 × 9 book interior suitable for Lulu.",
+  approach:
+    "The manuscript was developed chapter by chapter, with attention given to how each financial lesson connected to the next. Repetitive ideas were reduced, explanations were clarified, and transitions were improved so the book would read as one cohesive journey rather than a collection of disconnected financial observations. The final stage involved organizing the complete manuscript, checking the chapter sequence, arranging the front and back matter, and preparing the interior layout for publishing.",
+  deliverables:
+    "Complete 15-chapter nonfiction manuscript · Structured table of contents · Edited and refined chapters · Concluding section · Author section · Professionally formatted 6 × 9 interior · Lulu-ready PDF edition",
+  result: "The manuscript was completed and prepared as a Lulu-ready 6 × 9 book edition.",
+};
+
+const brokeToWealth: Project = {
+  id: "project-02",
+  internalLabel: "Project 02",
+  title: "From Being Broke to Building Wealth",
+  author: "Syed Saqib",
+  genre: "Personal Finance and Wealth Building",
+  status: "Completed manuscript",
+  category: "Personal Development",
+  service:
+    "Nonfiction editing, rewriting, structural development, and manuscript refinement",
+  wordCount: "Approximately 186–187 formatted pages",
+  summary:
+    "A practical personal-finance book designed to help readers improve their financial habits, reduce unnecessary spending, manage debt, increase income, and build long-term wealth. The manuscript combines straightforward explanations with weekly missions, examples, exercises, and realistic action steps.",
+  confidential: false,
+  overview:
+    "From Being Broke to Building Wealth is a structured personal-finance guide that turns broad financial principles into practical weekly actions. It covers budgeting, spending, debt reduction, income growth, side hustles, financial planning, and sustainable wealth-building habits.",
+  objective:
+    "The client wanted a useful and accessible book that would help readers move from financial uncertainty to greater control over their money. The material needed to be practical, motivating, properly organized, and understandable to readers without advanced financial knowledge.",
+  scope:
+    "Nonfiction manuscript editing · Rewriting and content refinement · Chapter and section organization · Development of clearer explanations · Improvement of exercises and weekly missions · Tone and consistency editing · Readability and flow improvement · Final manuscript polishing",
+  contribution:
+    "I helped strengthen the manuscript's structure, clarity, and practical value. The work included refining explanations, improving transitions, organizing the weekly missions, and ensuring that each chapter moved readers toward a clear financial action.",
+  approach:
+    "The material was organized around progressive financial goals. Each chapter was reviewed to ensure that its lessons, examples, exercises, and action steps worked together. Complex ideas were presented in straightforward language while preserving an encouraging and realistic tone.",
+  deliverables:
+    "Completed nonfiction manuscript · Approximately 186–187 formatted pages · Structured chapters and weekly missions · Practical activities and reflection exercises · Revised and professionally polished content",
+  result:
+    "A complete personal-finance manuscript that gives readers a structured and actionable path toward improving their finances and building wealth.",
+};
+
+export const projects: Project[] = [
+  numbersGame,
+  brokeToWealth,
+  ...Array.from({ length: 8 }, (_, i) => makeProject(i + 3)),
+];
 
 export function getProject(id: string) {
   return projects.find((p) => p.id === id);
 }
+
 
 export const services = [
   {
