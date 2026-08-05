@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import portrait from "@/assets/portrait.jpg";
+import portrait from "@/assets/mercy-standing.jpg";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { benefits } from "@/data/content";
@@ -76,15 +76,13 @@ function About() {
               </div>
               <div className="mt-9 flex flex-wrap gap-3">
                 <Link
-                  to="/"
-                  hash="contact"
+                  to="/contact"
                   className="rounded-sm bg-primary px-7 py-3.5 text-[0.78rem] font-medium tracking-[0.16em] text-primary-foreground uppercase transition-colors hover:bg-accent"
                 >
                   Discuss Your Book
                 </Link>
                 <Link
-                  to="/"
-                  hash="portfolio"
+                  to="/portfolio"
                   className="rounded-sm border border-foreground/25 px-7 py-3.5 text-[0.78rem] font-medium tracking-[0.16em] uppercase transition-colors hover:border-accent hover:text-accent"
                 >
                   View My Portfolio

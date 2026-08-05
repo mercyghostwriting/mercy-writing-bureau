@@ -23,15 +23,23 @@ export function SiteFooter() {
         <div>
           <h3 className="text-xs tracking-[0.22em] text-accent uppercase">Navigate</h3>
           <ul className="mt-5 space-y-2.5 text-sm text-primary-foreground/70">
-            {["About", "Services", "Portfolio", "Process", "Testimonials", "FAQ", "Contact"].map(
-              (l) => (
-                <li key={l}>
-                  <Link to="/" hash={l.toLowerCase()} className="transition-colors hover:text-accent">
-                    {l}
-                  </Link>
-                </li>
-              ),
-            )}
+            {(
+              [
+                ["About", "/about"],
+                ["Services", "/services"],
+                ["Portfolio", "/portfolio"],
+                ["Process", "/process"],
+                ["Testimonials", "/testimonials"],
+                ["FAQ", "/faq"],
+                ["Contact", "/contact"],
+              ] as const
+            ).map(([label, to]) => (
+              <li key={label}>
+                <Link to={to} className="transition-colors hover:text-accent">
+                  {label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -40,7 +48,7 @@ export function SiteFooter() {
           <ul className="mt-5 space-y-2.5 text-sm text-primary-foreground/70">
             {services.slice(0, 6).map((s) => (
               <li key={s.title}>
-                <Link to="/" hash="services" className="transition-colors hover:text-accent">
+                <Link to="/services" className="transition-colors hover:text-accent">
                   {s.title}
                 </Link>
               </li>
