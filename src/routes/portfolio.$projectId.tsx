@@ -13,7 +13,7 @@ export const Route = createFileRoute("/portfolio/$projectId")({
         <p className="mt-4 text-muted-foreground">
           That case study doesn't exist or has been removed.
         </p>
-        <Link to="/" hash="portfolio" className="mt-8 inline-block text-accent underline underline-offset-4">
+        <Link to="/portfolio" className="mt-8 inline-block text-accent underline underline-offset-4">
           Back to portfolio
         </Link>
       </div>
@@ -76,8 +76,7 @@ function CaseStudy() {
       <main className="px-5 py-14 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-5xl">
           <Link
-            to="/"
-            hash="portfolio"
+            to="/portfolio"
             className="text-[0.75rem] tracking-[0.16em] text-muted-foreground uppercase hover:text-accent"
           >
             ← Back to portfolio
@@ -149,8 +148,7 @@ function CaseStudy() {
               ) : null}
 
               <Link
-                to="/"
-                hash="contact"
+                to="/contact"
                 className="mt-10 inline-block rounded-sm bg-primary px-8 py-4 text-[0.78rem] font-medium tracking-[0.16em] text-primary-foreground uppercase transition-colors hover:bg-accent"
               >
                 Start a Similar Project
