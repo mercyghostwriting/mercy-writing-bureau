@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/site/PageShell";
 import { PortfolioGrid } from "@/components/site/PortfolioGrid";
 
-export const Route = createFileRoute("/portfolio")({
+export const Route = createFileRoute("/portfolio/")({
   component: PortfolioPage,
   head: () => ({
     meta: [
