@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/site/PageShell";
 import { ContactForm } from "@/components/site/ContactForm";
 import standingPhoto from "@/assets/mercy-standing.jpg";
-import { CONTACT_EMAIL } from "@/data/content";
+import { CONTACT_EMAIL, SOCIAL_LINKS } from "@/data/content";
 
 export const Route = createFileRoute("/contact")({
   component: ContactPage,
