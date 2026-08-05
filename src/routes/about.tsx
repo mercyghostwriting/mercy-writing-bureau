@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import portrait from "@/assets/portrait.jpg.asset.json";
+import portrait from "@/assets/portrait.jpg";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { benefits } from "@/data/content";
@@ -39,7 +39,7 @@ function About() {
               <div className="absolute -top-4 -left-4 hidden h-full w-full border border-accent/40 sm:block" />
               <div className="relative overflow-hidden border border-border bg-secondary/40 p-3">
                 <img
-                  src={portrait.url}
+                  src={portrait}
                   alt="Portrait of the ghostwriter behind Mercy Writing Bureau"
                   className="h-full w-full object-cover"
                 />
