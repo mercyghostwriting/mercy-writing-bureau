@@ -158,7 +158,8 @@
 }
 
 @utility paper-grain {
-  background-image: radial-gradient(
+  background-image:
+    radial-gradient(
       circle at 20% 15%,
       color-mix(in oklab, var(--color-pearl) 60%, transparent),
       transparent 55%
@@ -168,4 +169,311 @@
       color-mix(in oklab, var(--color-clay) 8%, transparent),
       transparent 50%
     );
+}
+
+/* The Wrting Bureau */
+:root {
+  --background: #fcf5f1;
+  --foreground: #1d1946;
+  --card: #fffaf7;
+  --card-foreground: #1d1946;
+  --primary: #494397;
+  --primary-foreground: #fffaf7;
+  --secondary: #eee9fa;
+  --secondary-foreground: #211b4c;
+  --muted: #f2e9f3;
+  --muted-foreground: #59546f;
+  --accent: #a04437;
+  --accent-foreground: #fffaf7;
+  --border: #d9cfe7;
+  --input: #cabddc;
+  --ring: #6d62c1;
+  --bureau-violet: #756bc4;
+  --bureau-coral: #ff927c;
+}
+@theme inline {
+  --font-display: "Karla", ui-sans-serif, system-ui, sans-serif;
+}
+.bureau-wrap {
+  width: min(1120px, calc(100% - 3rem));
+  margin-inline: auto;
+}
+.bureau-wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: #4d439b;
+  font-size: 0.89rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  line-height: 0.95;
+}
+.bureau-mark {
+  width: 2.5rem;
+  height: 2.65rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid #7264bb;
+  border-radius: 1.5rem 1.5rem 0.36rem 0.36rem;
+  background: #eee8fc;
+  font-size: 1.45rem;
+  font-style: italic;
+  letter-spacing: -0.12em;
+  padding-right: 0.15rem;
+}
+.bureau-logo-dot {
+  color: #b65342;
+}
+.bureau-button {
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.78rem 1.2rem;
+  border-radius: 999px;
+  background: var(--bureau-coral);
+  color: #291939;
+  font-weight: 750;
+  white-space: nowrap;
+}
+.bureau-button:hover {
+  background: #ffa793;
+}
+.bureau-actions .bureau-button,
+.bureau-bottom .bureau-button {
+  display: inline-flex;
+}
+.bureau-text-link {
+  color: #494397;
+  font-weight: 750;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+.bureau-hero {
+  border-top: 1px solid var(--border);
+  background: radial-gradient(ellipse at 80% 45%, #fce3e5, transparent 53%);
+}
+.bureau-hero-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.8fr;
+  gap: clamp(2rem, 7vw, 7rem);
+  align-items: center;
+  padding-block: 3.2rem;
+}
+.bureau-intro h1 {
+  max-width: 11ch;
+  font-size: clamp(3rem, 6.4vw, 6.1rem);
+  line-height: 0.94;
+  font-weight: 800;
+  letter-spacing: -0.065em;
+}
+.bureau-intro h1 em {
+  color: #5146a0;
+  font-weight: inherit;
+}
+.bureau-intro p,
+.bureau-about p,
+.bureau-bottom p {
+  max-width: 46ch;
+  margin-top: 1rem;
+}
+.bureau-intro p,
+.bureau-about p {
+  color: var(--muted-foreground);
+}
+.bureau-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.65rem;
+}
+.bureau-portrait {
+  justify-self: center;
+  position: relative;
+  width: min(100%, 350px);
+}
+.bureau-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 5/6;
+  object-fit: cover;
+  object-position: center 29%;
+  border-radius: 48% 48% 1.25rem 1.25rem;
+  border: 2px solid var(--bureau-coral);
+}
+.bureau-portrait span {
+  position: absolute;
+  left: 50%;
+  bottom: -0.85rem;
+  translate: -50%;
+  border-radius: 99px;
+  background: #fffaf7;
+  padding: 0.45rem 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 8px 22px #2920551c;
+}
+.bureau-lavender {
+  background: linear-gradient(var(--bureau-violet) 75%, var(--background) 75%);
+  padding-block: 1.15rem 0;
+}
+.bureau-assurances {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem 2rem;
+  color: #fff;
+  padding-bottom: 1.15rem;
+  font-weight: 750;
+}
+.bureau-service-panel {
+  background: #fff6f4;
+  border: 1px solid #e6d9ec;
+  border-radius: 1.2rem;
+  padding: clamp(1rem, 4vw, 2.6rem);
+  box-shadow: 0 16px 44px #3327630e;
+}
+.bureau-home h2 {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+}
+.bureau-service-panel h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.bureau-services {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 0.8rem;
+  overflow: hidden;
+}
+.bureau-services a {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 0.35rem;
+  padding: 1.25rem;
+  background: #fffaf8;
+}
+.bureau-services a:hover {
+  background: #eee9fa;
+}
+.bureau-services svg {
+  color: #6758b8;
+  margin-bottom: 0.3rem;
+}
+.bureau-services h3 {
+  font-weight: 800;
+  font-size: 1.07rem;
+}
+.bureau-services p,
+.bureau-cases p {
+  color: var(--muted-foreground);
+  font-size: 0.92rem;
+}
+.bureau-work {
+  padding-block: 4rem;
+}
+.bureau-section-heading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+}
+.bureau-cases {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.bureau-cases a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  border-radius: 1.1rem;
+  padding: clamp(1rem, 3.5vw, 2.5rem);
+  background: #ebe5fa;
+}
+.bureau-cases a:nth-child(2) {
+  background: #fce5df;
+}
+.bureau-cases a:hover {
+  outline: 2px solid var(--primary);
+}
+.bureau-cases h3 {
+  font-size: clamp(1.4rem, 3vw, 2.3rem);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+.bureau-cases span {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: auto;
+  font-weight: 750;
+}
+.bureau-about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(1rem, 5vw, 4rem);
+}
+.bureau-about img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  border-radius: 1.1rem;
+}
+.bureau-about a {
+  display: inline-block;
+  margin-top: 1rem;
+}
+.bureau-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(1.3rem, 4vw, 2.7rem);
+  margin-block: 4rem;
+  border-radius: 1.2rem;
+  background: #302765;
+  color: #fffaf7;
+}
+@media (max-width: 720px) {
+  .bureau-wrap {
+    width: calc(100% - 2rem);
+  }
+  .bureau-hero-grid,
+  .bureau-about,
+  .bureau-cases {
+    grid-template-columns: 1fr;
+  }
+  .bureau-hero-grid {
+    gap: 1.6rem;
+    padding-block: 2.2rem;
+  }
+  .bureau-portrait {
+    width: min(72%, 270px);
+  }
+  .bureau-services {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .bureau-services a {
+    padding: 0.85rem;
+  }
+  .bureau-assurances {
+    column-gap: 0.8rem;
+    font-size: 0.82rem;
+  }
 }

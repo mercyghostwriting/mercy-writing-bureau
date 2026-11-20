@@ -14,7 +14,7 @@ export const Route = createFileRoute("/contact")({
         content:
           "Tell me about your book idea, word count and publishing goals. I'll review the details and recommend the best next step for your manuscript.",
       },
-      { property: "og:title", content: "Contact Mercy Writing Bureau" },
+      { property: "og:title", content: "Contact The Wrting Bureau" },
       {
         property: "og:description",
         content: "Send your book idea and goals — I'll recommend the right next step.",
@@ -38,7 +38,7 @@ function ContactPage() {
           <div className="relative overflow-hidden border border-border bg-secondary/40 p-3">
             <img
               src={standingPhoto}
-              alt="Mercy, professional ghostwriter and founder of Mercy Writing Bureau"
+              alt="Mercy, professional ghostwriter and founder of The Wrting Bureau"
               loading="lazy"
               className="h-full w-full object-cover"
             />

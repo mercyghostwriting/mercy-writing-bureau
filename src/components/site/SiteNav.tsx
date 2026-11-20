@@ -2,14 +2,10 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 const NAV = [
-  { label: "Home", to: "/" },
-  { label: "About", to: "/about" },
   { label: "Services", to: "/services" },
   { label: "Portfolio", to: "/portfolio" },
-  { label: "Process", to: "/process" },
-  { label: "Testimonials", to: "/testimonials" },
-  { label: "FAQ", to: "/faq" },
-  { label: "Contact", to: "/contact" },
+  { label: "How I Work", to: "/process" },
+  { label: "About", to: "/about" },
 ] as const;
 
 export function SiteNav() {
@@ -35,9 +31,14 @@ export function SiteNav() {
         aria-label="Main navigation"
         className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 lg:px-8"
       >
-        <Link to="/" className="font-display text-xl tracking-tight text-foreground">
-          Mercy Writing Bureau
-          <span className="ml-1 text-accent">.</span>
+        <Link to="/" className="bureau-wordmark" aria-label="The Wrting Bureau home">
+          <span className="bureau-mark" aria-hidden="true">
+            W
+          </span>
+          <span>
+            THE WRTING <br />
+            BUREAU<span className="bureau-logo-dot">.</span>
+          </span>
         </Link>
 
         <ul className="hidden items-center gap-7 lg:flex">
@@ -54,10 +55,7 @@ export function SiteNav() {
           ))}
         </ul>
 
-        <Link
-          to="/contact"
-          className="hidden rounded-sm bg-primary px-5 py-2.5 text-[0.78rem] font-medium tracking-wider text-primary-foreground uppercase transition-colors hover:bg-accent lg:inline-block"
-        >
+        <Link to="/contact" className="bureau-button hidden lg:inline-flex">
           Discuss Your Book
         </Link>
 

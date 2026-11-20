@@ -7,11 +7,11 @@ export const Route = createFileRoute("/testimonials")({
   component: TestimonialsPage,
   head: () => ({
     meta: [
-      { title: "Client Testimonials | Mercy Writing Bureau" },
+      { title: "Client Testimonials | The Wrting Bureau" },
       {
         name: "description",
         content:
-          "What authors, entrepreneurs and coaches say about working with Mercy Writing Bureau on their book projects.",
+          "What authors, entrepreneurs and coaches say about working with The Wrting Bureau on their book projects.",
       },
       { property: "og:title", content: "Client Testimonials" },
       {
@@ -56,7 +56,7 @@ function TestimonialsPage() {
           <div className="overflow-hidden border border-border bg-secondary/40 p-3">
             <img
               src={seatedPhoto}
-              alt="The ghostwriter behind Mercy Writing Bureau"
+              alt="The ghostwriter behind The Wrting Bureau"
               loading="lazy"
               className="h-full w-full object-cover"
             />

@@ -1,19 +1,22 @@
 import { Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { FILTERS, projects } from "@/data/content";
+import { projects } from "@/data/content";
+
+const published = projects.filter((project) => !project.title.includes("[Add project title]"));
+const filters = ["All", ...new Set(published.map((project) => project.category))];
 
 export function PortfolioGrid({ limit }: { limit?: number }) {
   const [filter, setFilter] = useState<string>("All");
 
   const visible = useMemo(() => {
-    const list = filter === "All" ? projects : projects.filter((p) => p.category === filter);
+    const list = filter === "All" ? published : published.filter((p) => p.category === filter);
     return limit ? list.slice(0, limit) : list;
   }, [filter, limit]);
 
   return (
     <div>
       <div className="flex flex-wrap gap-2">
-        {FILTERS.map((f) => (
+        {filters.map((f) => (
           <button
             key={f}
             type="button"
@@ -36,23 +39,14 @@ export function PortfolioGrid({ limit }: { limit?: number }) {
             key={p.id}
             className="group flex flex-col border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:border-accent/50"
           >
-            <div className="flex aspect-4/5 items-center justify-center border-b border-border bg-secondary/60 paper-grain">
-              {p.coverImage ? (
-                <img
-                  src={p.coverImage}
-                  alt={`Book cover for ${p.title}`}
-                  loading="lazy"
-                  className="h-full w-full object-cover"
-                />
-              ) : (
-                <div className="px-6 text-center">
-                  <p className="eyebrow">{p.internalLabel}</p>
-                  <p className="mt-3 font-display text-xl text-muted-foreground">
-                    Add approved cover image
-                  </p>
-                </div>
-              )}
-            </div>
+            {p.coverImage && (
+              <img
+                src={p.coverImage}
+                alt={`Book cover for ${p.title}`}
+                loading="lazy"
+                className="aspect-4/5 w-full border-b border-border object-cover"
+              />
+            )}
             <div className="flex flex-1 flex-col p-6">
               <p className="text-[0.7rem] tracking-[0.18em] text-accent uppercase">{p.category}</p>
               <h3 className="mt-2 font-display text-xl leading-snug">

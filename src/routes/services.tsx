@@ -7,7 +7,7 @@ export const Route = createFileRoute("/services")({
   component: ServicesPage,
   head: () => ({
     meta: [
-      { title: "Ghostwriting & Editing Services | Mercy Writing Bureau" },
+      { title: "Ghostwriting & Editing Services | The Wrting Bureau" },
       {
         name: "description",
         content:
@@ -70,7 +70,7 @@ function ServicesPage() {
           <div className="relative overflow-hidden border border-border bg-secondary/40 p-3">
             <img
               src={deskPhoto}
-              alt="The ghostwriter behind Mercy Writing Bureau working at her desk"
+              alt="The ghostwriter behind The Wrting Bureau working at her desk"
               loading="lazy"
               className="h-full w-full object-cover"
             />
