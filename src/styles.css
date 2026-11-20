@@ -477,3 +477,353 @@
     font-size: 0.82rem;
   }
 }
+
+/* Movement and refined composition */
+.bureau-header {
+  box-shadow: 0 4px 24px #30276508;
+}
+.bureau-header nav {
+  min-height: 88px;
+}
+.bureau-header nav ul a {
+  position: relative;
+  padding-block: 0.5rem;
+}
+.bureau-header nav ul a::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #756bc4;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms ease;
+}
+.bureau-header nav ul a:hover::after,
+.bureau-header nav ul a:focus-visible::after {
+  transform: scaleX(1);
+}
+.bureau-hero {
+  background: #fcf5f1;
+}
+.bureau-hero-grid {
+  grid-template-columns: 1.15fr 1fr;
+  gap: 5rem;
+  padding-block: 4.5rem 5.5rem;
+}
+.bureau-intro h1 {
+  max-width: 12ch;
+  font-size: clamp(3.3rem, 5.4vw, 5.4rem);
+  letter-spacing: -0.05em;
+  line-height: 1.02;
+}
+.bureau-intro p {
+  margin-top: 1.4rem;
+  line-height: 1.7;
+}
+.bureau-portrait-group {
+  position: relative;
+  padding: 0 1.5rem 1.3rem;
+}
+.bureau-portrait {
+  width: min(100%, 340px);
+  margin: auto;
+}
+.bureau-portrait::before {
+  content: "";
+  position: absolute;
+  inset: -12px 14px 14px -12px;
+  border: 1px solid #e88776;
+  border-radius: 48% 48% 1.25rem 1.25rem;
+  z-index: 0;
+}
+.bureau-portrait > img {
+  position: relative;
+  border: 0;
+}
+.bureau-portrait span {
+  z-index: 2;
+}
+.bureau-photo-note {
+  position: absolute;
+  bottom: -2rem;
+  right: -1rem;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.55rem 1rem 0.55rem 0.55rem;
+  background: #eee8fb;
+  border: 5px solid #fcf5f1;
+  border-radius: 80px;
+  box-shadow: 0 12px 32px #39266a12;
+}
+.bureau-photo-note img {
+  width: 58px;
+  height: 58px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.bureau-photo-note p {
+  font-size: 0.8rem;
+  line-height: 1.3;
+  font-weight: 700;
+}
+.bureau-assurances {
+  padding-block: 0.7rem 1.7rem;
+  font-weight: 500;
+}
+.bureau-service-panel {
+  border-radius: 0.6rem;
+  padding: 2.8rem 3rem;
+}
+.bureau-service-panel h2 {
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  margin-bottom: 2.3rem;
+}
+.bureau-services {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  gap: 0;
+}
+.bureau-services a {
+  background: transparent;
+  padding: 1.7rem;
+  justify-items: center;
+  text-align: center;
+  border-bottom: 1px solid #d7cbee;
+  border-right: 1px solid #d7cbee;
+}
+.bureau-services a:nth-child(3n) {
+  border-right: 0;
+}
+.bureau-services a:nth-last-child(-n + 3) {
+  border-bottom: 0;
+}
+.bureau-services svg {
+  margin-bottom: 0.7rem;
+  width: 32px;
+  height: 32px;
+}
+.bureau-services p {
+  max-width: 25ch;
+}
+.bureau-work {
+  padding-block: 5.5rem;
+}
+.bureau-cases {
+  gap: 1.7rem;
+}
+.bureau-cases a {
+  min-height: 250px;
+  border: 1px solid transparent;
+}
+.bureau-cases a:hover {
+  outline: 0;
+  border-color: #b1a2dc;
+  box-shadow: 0 18px 38px #30276512;
+}
+.bureau-cases h3 {
+  max-width: 20ch;
+}
+.bureau-about {
+  padding-block: 1rem 3.5rem;
+}
+.bureau-about img {
+  aspect-ratio: 1.25;
+  border-radius: 7rem 0.8rem 0.8rem 0.8rem;
+}
+.bureau-about h2 {
+  max-width: 14ch;
+}
+.bureau-about p {
+  line-height: 1.75;
+  margin-block: 1.4rem;
+}
+.bureau-steps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  padding-block: 2rem;
+}
+.bureau-steps > div > p {
+  max-width: 40ch;
+  margin-block: 1.3rem;
+  color: var(--muted-foreground);
+}
+.bureau-steps ol {
+  counter-reset: steps;
+  list-style: none;
+}
+.bureau-steps li {
+  counter-increment: steps;
+  position: relative;
+  padding: 1.2rem 0 1.2rem 3.3rem;
+  border-bottom: 1px solid var(--border);
+}
+.bureau-steps li::before {
+  content: counter(steps, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 1.2rem;
+  color: #6d61b7;
+  font-weight: 750;
+}
+.bureau-steps h3 {
+  font-size: 1.15rem;
+  font-weight: 750;
+}
+.bureau-steps li p {
+  color: var(--muted-foreground);
+  font-size: 0.95rem;
+  margin-top: 0.35rem;
+}
+.bureau-bottom {
+  background: #eee5fb;
+  color: #241c4a;
+  margin-block: 3rem 5rem;
+  padding-block: 3.3rem;
+}
+.bureau-button,
+.bureau-cases a,
+.bureau-services a,
+.bureau-services svg,
+.bureau-button svg,
+.bureau-cases svg {
+  transition:
+    transform 260ms ease,
+    background-color 260ms ease,
+    box-shadow 260ms ease,
+    border-color 260ms ease;
+}
+.bureau-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px #d46e5630;
+}
+.bureau-button:hover svg,
+.bureau-cases a:hover svg {
+  transform: translate(2px, -2px);
+}
+.bureau-cases a:hover {
+  transform: translateY(-5px);
+}
+.bureau-services a:hover svg {
+  transform: translateY(-4px) rotate(-5deg);
+}
+.bureau-mobile-menu {
+  animation: bureau-enter 220ms ease-out both;
+}
+:focus-visible {
+  outline: 2px solid #5146a0;
+  outline-offset: 5px;
+}
+@keyframes bureau-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes bureau-portrait-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px) rotate(2deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+  .bureau-intro h1 {
+    animation: bureau-enter 700ms ease-out both;
+  }
+  .bureau-intro > p {
+    animation: bureau-enter 700ms 100ms ease-out both;
+  }
+  .bureau-actions {
+    animation: bureau-enter 700ms 180ms ease-out both;
+  }
+  .bureau-portrait-group {
+    animation: bureau-portrait-in 850ms 100ms ease-out both;
+  }
+}
+@media (max-width: 720px) {
+  .bureau-header nav {
+    min-height: 76px;
+  }
+  .bureau-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-block: 2.2rem 3.8rem;
+  }
+  .bureau-intro h1 {
+    font-size: clamp(3rem, 10vw, 4rem);
+    max-width: 14ch;
+  }
+  .bureau-portrait-group {
+    width: min(100%, 340px);
+    margin-inline: auto;
+  }
+  .bureau-portrait {
+    width: 100%;
+  }
+  .bureau-photo-note {
+    right: -0.4rem;
+    bottom: -0.8rem;
+  }
+  .bureau-service-panel {
+    padding: 1.8rem 0.6rem;
+  }
+  .bureau-service-panel h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+  }
+  .bureau-services a {
+    padding: 1.2rem 0.7rem;
+    border-right: 0;
+    border-bottom: 1px solid #d7cbee;
+  }
+  .bureau-services a:nth-child(odd) {
+    border-right: 1px solid #d7cbee;
+  }
+  .bureau-services a:nth-last-child(3) {
+    border-bottom: 1px solid #d7cbee;
+  }
+  .bureau-services a:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+  .bureau-work {
+    padding-block: 3rem;
+  }
+  .bureau-steps {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .bureau-bottom {
+    margin-bottom: 3rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .bureau-home *,
+  .bureau-header * {
+    animation: none !important;
+    transition: none !important;
+  }
+  .bureau-home a:hover,
+  .bureau-home a:hover svg {
+    transform: none;
+  }
+}

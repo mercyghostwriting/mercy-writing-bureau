@@ -16,12 +16,21 @@ export function SiteNav() {
     const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
+    useEffect(() => {
+      if (!open) return;
+      const closeOnEscape = (event: KeyboardEvent) => {
+        if (event.key === "Escape") setOpen(false);
+      };
+      window.addEventListener("keydown", closeOnEscape);
+      return () => window.removeEventListener("keydown", closeOnEscape);
+    }, [open]);
+
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`bureau-header sticky top-0 z-50 transition-all duration-300 ${
         scrolled
           ? "border-b border-border bg-background/90 backdrop-blur-md"
           : "border-b border-transparent bg-background"
@@ -76,7 +85,7 @@ export function SiteNav() {
       </nav>
 
       {open && (
-        <div className="border-t border-border bg-background lg:hidden">
+        <div className="bureau-mobile-menu border-t border-border bg-background lg:hidden">
           <ul className="mx-auto flex max-w-6xl flex-col px-5 py-2">
             {NAV.map((item) => (
               <li key={item.label}>

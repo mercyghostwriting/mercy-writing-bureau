@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useRef } from "react";
+import seatedPhoto from "@/assets/mercy-seated.jpg";
 import portrait from "@/assets/portrait.jpg";
 import deskPhoto from "@/assets/mercy-desk.jpg";
 import { SiteNav } from "@/components/site/SiteNav";
@@ -63,15 +65,44 @@ const offers = [
 ];
 
 function Home() {
+  const page = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const elements = page.current?.querySelectorAll("[data-reveal]") ?? [];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          if (!preference.matches) {
+            entry.target.animate(
+              [
+                { opacity: 0.25, transform: "translateY(24px)" },
+                { opacity: 1, transform: "translateY(0)" },
+              ],
+              { duration: 650, easing: "cubic-bezier(.2,.7,.2,1)" },
+            );
+          }
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.12 },
+    );
+    elements.forEach((element) => observer.observe(element));
+    return () => observer.disconnect();
+  }, []);
   return (
-    <div className="bureau-home">
+    <div className="bureau-home" ref={page}>
       <SiteNav />
       <main>
         <section className="bureau-hero">
           <div className="bureau-wrap bureau-hero-grid">
             <div className="bureau-intro">
               <h1>
-                Let’s write the book you’ve been <em>thinking about.</em>
+                Your story.
+                <br />
+                Your voice.
+                <br />
+                <em>A book to be proud of.</em>
               </h1>
               <p>
                 I’m Mercy, a book ghostwriter and editor. Bring me your idea, notes, or draft, and
@@ -86,15 +117,30 @@ function Home() {
                 </Link>
               </div>
             </div>
-            <div className="bureau-portrait">
-              <img
-                src={portrait}
-                width={810}
-                height={1080}
-                alt="Mercy, founder of The Wrting Bureau"
-                fetchPriority="high"
-              />
-              <span>Mercy · Ghostwriter &amp; editor</span>
+            <div className="bureau-portrait-group">
+              <div className="bureau-portrait">
+                <img
+                  src={portrait}
+                  width={810}
+                  height={1080}
+                  alt="Mercy, founder of The Wrting Bureau"
+                  fetchPriority="high"
+                />
+                <span>Mercy · Ghostwriter &amp; editor</span>
+              </div>
+              <div className="bureau-photo-note">
+                <img
+                  src={seatedPhoto}
+                  alt="Mercy working on a writing project"
+                  width={120}
+                  height={120}
+                />
+                <p>
+                  Good books start
+                  <br />
+                  with a conversation.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -106,7 +152,7 @@ function Home() {
               <span>Your voice throughout</span>
               <span>You own the manuscript</span>
             </div>
-            <div className="bureau-service-panel">
+            <div className="bureau-service-panel" data-reveal>
               <h2 id="bureau-services">What does your book need?</h2>
               <div className="bureau-services">
                 {offers.map(({ title, detail, icon: Icon }) => (
@@ -121,7 +167,7 @@ function Home() {
           </div>
         </section>
 
-        <section className="bureau-wrap bureau-work">
+        <section className="bureau-wrap bureau-work" data-reveal>
           <div className="bureau-section-heading">
             <h2>Selected work</h2>
             <Link className="bureau-text-link" to="/portfolio">
@@ -146,7 +192,7 @@ function Home() {
           </div>
         </section>
 
-        <section className="bureau-wrap bureau-about">
+        <section className="bureau-wrap bureau-about" data-reveal>
           <img src={deskPhoto} alt="Mercy at her writing desk" loading="lazy" />
           <div>
             <h2>From first conversation to final draft</h2>
@@ -160,7 +206,37 @@ function Home() {
           </div>
         </section>
 
-        <section className="bureau-wrap bureau-bottom">
+        <section className="bureau-wrap bureau-steps" data-reveal aria-labelledby="steps-title">
+          <div>
+            <h2 id="steps-title">
+              A clear plan.
+              <br />
+              Room for your ideas.
+            </h2>
+            <p>
+              You’ll know what comes next, and have time to review the work as your book takes
+              shape.
+            </p>
+            <Link className="bureau-text-link" to="/process">
+              Explore the process
+            </Link>
+          </div>
+          <ol>
+            <li>
+              <h3>Share your idea</h3>
+              <p>Tell me about your reader, your material, and the book you want to create.</p>
+            </li>
+            <li>
+              <h3>Shape the manuscript</h3>
+              <p>We agree on the outline, scope, and review points before the writing begins.</p>
+            </li>
+            <li>
+              <h3>Review and refine</h3>
+              <p>You review the draft, share your feedback, and receive the agreed final files.</p>
+            </li>
+          </ol>
+        </section>
+        <section className="bureau-wrap bureau-bottom" data-reveal>
           <div>
             <h2>Tell me about your book</h2>
             <p>A few lines about where you are and what you need are enough to start.</p>
