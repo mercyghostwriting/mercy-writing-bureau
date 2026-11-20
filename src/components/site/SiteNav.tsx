@@ -16,17 +16,17 @@ export function SiteNav() {
     const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    useEffect(() => {
-      if (!open) return;
-      const closeOnEscape = (event: KeyboardEvent) => {
-        if (event.key === "Escape") setOpen(false);
-      };
-      window.addEventListener("keydown", closeOnEscape);
-      return () => window.removeEventListener("keydown", closeOnEscape);
-    }, [open]);
-
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [open]);
 
   return (
     <header
