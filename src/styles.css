@@ -626,16 +626,138 @@
   margin-bottom: 0.45rem;
 }
 
-.project-inquiry { background: var(--secondary); padding-block: clamp(3rem,8vw,7rem); }
-.project-inquiry-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.15fr); gap: clamp(2rem,7vw,6rem); align-items: start; }
-.project-inquiry-grid > div > p { max-width: 34ch; margin-block: 1.2rem; line-height: 1.7; }
-.project-inquiry form { background: var(--card); border: 1px solid var(--border); padding: clamp(1.2rem,4vw,2.5rem); }
-.bureau-footer-directory { display: grid; grid-template-columns: 1.65fr 1fr 1fr; gap: 2rem; padding-block: clamp(3rem,7vw,5rem); }
-.bureau-footer-directory .colophon-name { font-size: clamp(2.3rem,5vw,4.4rem); display: inline-block; }
-.bureau-footer-directory h2 { color: #e6a190; font-size: .82rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem; }
-.bureau-footer-directory > div:nth-child(2) a,.bureau-footer-directory nav a { display: block; width: fit-content; margin-block: .6rem; }
+.project-inquiry {
+  background: var(--secondary);
+  padding-block: clamp(3rem, 8vw, 7rem);
+}
+.project-inquiry-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: clamp(2rem, 7vw, 6rem);
+  align-items: start;
+}
+.project-inquiry-grid > div > p {
+  max-width: 34ch;
+  margin-block: 1.2rem;
+  line-height: 1.7;
+}
+.project-inquiry form {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: clamp(1.2rem, 4vw, 2.5rem);
+}
+.bureau-footer-directory {
+  display: grid;
+  grid-template-columns: 1.65fr 1fr 1fr;
+  gap: 2rem;
+  padding-block: clamp(3rem, 7vw, 5rem);
+}
+.bureau-footer-directory .colophon-name {
+  font-size: clamp(2.3rem, 5vw, 4.4rem);
+  display: inline-block;
+}
+.bureau-footer-directory h2 {
+  color: #e6a190;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.bureau-footer-directory > div:nth-child(2) a,
+.bureau-footer-directory nav a {
+  display: block;
+  width: fit-content;
+  margin-block: 0.6rem;
+}
 @media (max-width: 720px) {
-  .project-inquiry-grid { grid-template-columns: 1fr; }
-  .bureau-footer-directory { grid-template-columns: 1fr 1fr; }
-  .bureau-footer-directory > div:first-child { grid-column: 1 / -1; }
+  .project-inquiry-grid {
+    grid-template-columns: 1fr;
+  }
+  .bureau-footer-directory {
+    grid-template-columns: 1fr 1fr;
+  }
+  .bureau-footer-directory > div:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+.portfolio-reel {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0.25rem 0.2rem 1rem;
+}
+.reel-card {
+  flex: 0 0 clamp(190px, 28vw, 290px);
+  scroll-snap-align: start;
+}
+.reel-card h3 {
+  font-size: 1.35rem;
+  margin-top: 0.75rem;
+}
+.reel-placeholder {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border: 1px solid #a98f7c;
+  background: #6b2830;
+  color: #fff7e9;
+  font-family: Georgia, serif;
+}
+.reel-card:nth-child(3n) .reel-placeholder {
+  background: #332520;
+}
+.reel-card:nth-child(3n + 1) .reel-placeholder {
+  background: #715244;
+}
+.reel-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  margin-block: 1rem;
+}
+.reel-controls button {
+  min-height: 44px;
+  padding: 0.5rem 0.85rem;
+  border: 1px solid var(--input);
+  background: var(--card);
+}
+.service-tiles > article {
+  border: 1px solid var(--border);
+  border-top: 3px solid #a98f7c;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+}
+.service-tiles > article:hover,
+.service-tiles > article:focus-within {
+  background: #f1d9d4;
+  border-top-color: var(--primary);
+}
+.nav-preview-item {
+  position: relative;
+}
+.nav-preview {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  top: 100%;
+  left: 0;
+  width: 14rem;
+  padding: 1rem;
+  background: #281918;
+  color: #fff4e5;
+  border-top: 3px solid #b37268;
+  box-shadow: 0 0.8rem 1.6rem #241b1729;
+  font-size: 0.86rem;
+}
+.nav-preview-end {
+  left: auto;
+  right: 0;
+}
+.nav-preview-item:hover .nav-preview,
+.nav-preview-item:focus-within .nav-preview {
+  display: block;
 }

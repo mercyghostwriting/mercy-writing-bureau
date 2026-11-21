@@ -1,3 +1,4 @@
+import { PortfolioReel } from "@/components/site/PortfolioReel";
 import { ContactForm } from "@/components/site/ContactForm";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site/SiteNav";
@@ -111,30 +112,12 @@ function Home() {
                 View portfolio ↗
               </Link>
             </div>
-            <div className="editorial-grid editorial-cases">
-              <Link to="/portfolio/$projectId" params={{ projectId: "project-01" }}>
-                <div className="book-cover-square">
-                  <img
-                    src="/numbers-game.webp"
-                    alt="The Numbers Game! by Anthony Jones"
-                    loading="lazy"
-                  />
-                </div>
-                <p>Manuscript development &amp; publishing preparation</p>
-                <h3>The Numbers Game!</h3>
-                <span>Read case study ↗</span>
-              </Link>
-              <Link to="/portfolio/$projectId" params={{ projectId: "project-02" }}>
-                <p>Nonfiction editing &amp; rewriting</p>
-                <h3>From Being Broke to Building Wealth</h3>
-                <span>Read case study ↗</span>
-              </Link>
-            </div>
+            <PortfolioReel />
           </div>
         </section>
         <section className="editorial-wrap editorial-services" aria-labelledby="service-heading">
           <h2 id="service-heading">Where are you in the process?</h2>
-          <div className="editorial-grid">
+          <div className="editorial-grid service-tiles">
             {offers.map(([title, detail]) => (
               <article key={title}>
                 <h3>{title}</h3>

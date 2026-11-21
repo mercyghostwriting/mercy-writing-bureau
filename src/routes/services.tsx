@@ -31,7 +31,7 @@ function ServicesPage() {
       title="Book Writing, Editing & Translation"
       intro="Whether you need a complete manuscript written from scratch or a finished draft brought up to publishing standard, the work is scoped to your book, not a package."
     >
-      <div className="grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+      <div className="service-tiles grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
         {services.map((s) => (
           <article
             key={s.title}

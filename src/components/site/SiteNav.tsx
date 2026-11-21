@@ -2,12 +2,32 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 const NAV = [
-  { label: "Home", to: "/" },
-  { label: "Services", to: "/services" },
-  { label: "About", to: "/about" },
-  { label: "How I Work", to: "/process" },
-  { label: "Portfolio", to: "/portfolio" },
-  { label: "FAQ", to: "/faq" },
+  { label: "Home", to: "/", preview: "Meet Mercy and browse selected book projects." },
+  {
+    label: "Services",
+    to: "/services",
+    preview: "Find help with writing, editing, formatting, or translation.",
+  },
+  {
+    label: "About",
+    to: "/about",
+    preview: "Meet the founder and read about her writing background.",
+  },
+  {
+    label: "How I Work",
+    to: "/process",
+    preview: "See how a project moves from brief to final draft.",
+  },
+  {
+    label: "Portfolio",
+    to: "/portfolio",
+    preview: "Browse book covers and read the case studies.",
+  },
+  {
+    label: "FAQ",
+    to: "/faq",
+    preview: "Find answers about timelines, revisions, and confidentiality.",
+  },
 ] as const;
 
 export function SiteNav() {
@@ -54,7 +74,7 @@ export function SiteNav() {
 
         <ul className="hidden items-center gap-7 lg:flex">
           {NAV.map((item) => (
-            <li key={item.label}>
+            <li key={item.label} className="nav-preview-item">
               <Link
                 to={item.to}
                 activeOptions={{ exact: item.to === "/" }}
@@ -63,13 +83,21 @@ export function SiteNav() {
               >
                 {item.label}
               </Link>
+              <span className="nav-preview" aria-hidden="true">
+                {item.preview}
+              </span>
             </li>
           ))}
         </ul>
 
-        <Link to="/contact" className="bureau-button hidden lg:inline-flex">
-          Contact Us
-        </Link>
+        <div className="nav-preview-item hidden lg:block">
+          <Link to="/contact" className="bureau-button inline-flex">
+            Contact Us
+          </Link>
+          <span className="nav-preview nav-preview-end" aria-hidden="true">
+            Share your manuscript, book idea, or translation brief.
+          </span>
+        </div>
 
         <button
           type="button"
