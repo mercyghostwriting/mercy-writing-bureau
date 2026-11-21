@@ -9,14 +9,20 @@ export function PortfolioGrid() {
       {published.map((project) => (
         <article
           key={project.id}
-          className="grid gap-7 border-t border-border py-8 sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] sm:items-center sm:gap-12"
+          className="grid gap-7 border-t border-border py-8 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] sm:items-center sm:gap-12"
         >
-          <div className="grid min-h-64 place-items-center bg-secondary p-7">
+          <div
+            className={
+              project.coverImage
+                ? "book-cover-square"
+                : "grid aspect-square place-items-center bg-secondary p-7"
+            }
+          >
             {project.coverImage ? (
               <img
                 src={project.coverImage}
                 alt={`Cover of ${project.title}`}
-                className="max-h-64 w-auto"
+                className="h-full w-full object-contain"
                 loading="lazy"
               />
             ) : (

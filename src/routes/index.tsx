@@ -112,6 +112,13 @@ function Home() {
             </div>
             <div className="editorial-grid editorial-cases">
               <Link to="/portfolio/$projectId" params={{ projectId: "project-01" }}>
+                <div className="book-cover-square">
+                  <img
+                    src="/numbers-game.webp"
+                    alt="The Numbers Game! by Anthony Jones"
+                    loading="lazy"
+                  />
+                </div>
                 <p>Manuscript development &amp; publishing preparation</p>
                 <h3>The Numbers Game!</h3>
                 <span>Read case study ↗</span>

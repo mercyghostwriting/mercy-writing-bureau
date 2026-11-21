@@ -1,4 +1,4 @@
-import { Mail, Linkedin } from "lucide-react";
+import { Mail, Linkedin, Phone, MessageCircle } from "lucide-react";
 import { CONTACT_EMAIL, SOCIAL_LINKS } from "@/data/content";
 
 export function ContactIcons() {
@@ -10,6 +10,12 @@ export function ContactIcons() {
           <Linkedin size={20} aria-hidden="true" />
         </a>
       )}
+      <a href="https://wa.me/2347048973837" aria-label="WhatsApp" title="WhatsApp">
+        <MessageCircle size={20} aria-hidden="true" />
+      </a>
+      <a href="tel:+2347048973837" aria-label="Call" title="Call">
+        <Phone size={20} aria-hidden="true" />
+      </a>
       <a href={`mailto:${CONTACT_EMAIL}`} aria-label="Email" title="Email">
         <Mail size={20} aria-hidden="true" />
       </a>

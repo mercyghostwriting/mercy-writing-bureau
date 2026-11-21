@@ -70,6 +70,7 @@ const numbersGame: Project = {
   id: "project-01",
   internalLabel: "Project 01",
   title: "The Numbers Game!",
+  coverImage: "/numbers-game.webp",
   subtitle: "If the Numbers Don't Work… Neither Do You.",
   author: "Anthony Jones",
   genre: "Financial Education / Entrepreneurship",

@@ -87,12 +87,18 @@ function CaseStudy() {
 
           <div className="mt-8 grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
-              <div className="flex aspect-4/5 items-center justify-center border border-border bg-secondary/60 paper-grain">
+              <div
+                className={
+                  project.coverImage
+                    ? "book-cover-square"
+                    : "flex aspect-square items-center justify-center border border-border bg-secondary/60"
+                }
+              >
                 {project.coverImage ? (
                   <img
                     src={project.coverImage}
                     alt={`Book cover for ${project.title}`}
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-contain"
                   />
                 ) : (
                   <div
