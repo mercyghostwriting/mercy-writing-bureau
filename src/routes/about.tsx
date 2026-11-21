@@ -33,57 +33,40 @@ function About() {
       <SiteNav />
       <main className="px-5 py-16 lg:px-8 lg:py-24">
         <div className="mx-auto max-w-6xl">
-          <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
-            <div className="relative">
-              <div className="absolute -top-4 -left-4 hidden h-full w-full border border-accent/40 sm:block" />
-              <div className="relative overflow-hidden border border-border bg-secondary/40 p-3">
-                <img
-                  src="/mercy-about.webp"
-                  alt="Portrait of the ghostwriter behind The Wrting Bureau"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </div>
-            <div className="rule-line">
-              <p className="eyebrow">About</p>
-              <h1 className="mt-4 font-display text-4xl leading-tight sm:text-5xl">
-                Your Ideas Deserve the Right Words
-              </h1>
-              <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground">
-                <p>
-                  I'm a professional ghostwriter working with authors, entrepreneurs, coaches, and
-                  publishers who have something worth saying and want it written properly. My job is
-                  to make the finished book sound like the best version of you — never like a
-                  writer-for-hire passing through.
-                </p>
-                <p>
-                  Every project starts with listening. I interview, read your notes, study your
-                  audience, and learn your rhythms of speech before I write a line. From there we
-                  build structure, approve a sample chapter, and move through drafting in milestones
-                  you review as we go.
-                </p>
-                <p>
-                  I write both fiction and nonfiction: business and leadership books, memoir and
-                  autobiography, personal development, mystery, thriller, romance, and other
-                  selected genres. I also take on developmental editing, proofreading, and KDP
-                  formatting for authors who have already written their draft.
-                </p>
-              </div>
-              <div className="mt-9 flex flex-wrap gap-3">
-                <Link
-                  to="/contact"
-                  className="rounded-sm bg-primary px-7 py-3.5 text-[0.78rem] font-medium tracking-[0.16em] text-primary-foreground uppercase transition-colors hover:bg-accent"
-                >
-                  Discuss Your Book
+          <div className="about-spread">
+            <div>
+              <h1>Book Ghostwriter For Fiction, Nonfiction and Ebooks</h1>
+              <p className="about-bio">
+                Seven years in, and I still love the moment a client reads their finished book and
+                says it sounds like them. That's the job. I ghostwrite fiction, nonfiction, memoirs,
+                biographies, and ebooks, and handle book development, rewriting, editing, and
+                proofreading for manuscripts that need polish. Clients and colleagues kept sending
+                referrals my way, so I brought my work to Fiverr. Confidentiality is a given, your
+                voice stays the priority, and deadlines are respected. Got a book idea sitting in
+                your notes or a stalled draft? Message me and let's finish it.
+              </p>
+              <p className="mt-5">
+                I’m also part of{" "}
+                <a className="editorial-link" href="https://theintercontinentalatelier.org/">
+                  The Intercontinental Atelier
+                </a>
+                .
+              </p>
+              <div className="editorial-actions">
+                <Link to="/contact" className="bureau-button inline-flex">
+                  Discuss your book ↗
                 </Link>
-                <Link
-                  to="/portfolio"
-                  className="rounded-sm border border-foreground/25 px-7 py-3.5 text-[0.78rem] font-medium tracking-[0.16em] uppercase transition-colors hover:border-accent hover:text-accent"
-                >
-                  View My Portfolio
+                <Link to="/portfolio" className="editorial-link">
+                  View my portfolio
                 </Link>
               </div>
             </div>
+            <img
+              src="/mercy-about.webp"
+              width={720}
+              height={960}
+              alt="Mercy, founder of The Wrting Bureau"
+            />
           </div>
 
           <div className="mt-24 border-t border-border pt-14">

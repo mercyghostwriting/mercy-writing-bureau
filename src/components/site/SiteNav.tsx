@@ -31,7 +31,7 @@ export function SiteNav() {
 
   return (
     <header
-      className={`bureau-header sticky top-0 z-50 transition-all duration-300 ${
+      className={`bureau-masthead sticky top-0 z-50 transition-all duration-300 ${
         scrolled
           ? "border-b border-border bg-background/90 backdrop-blur-md"
           : "border-b border-transparent bg-background"

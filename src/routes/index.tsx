@@ -67,9 +67,9 @@ function Home() {
             <div className="editorial-hero-copy">
               <p className="editorial-label">Book writing · Editing · Translation</p>
               <h1>
-                Your words.
+                Books written
                 <br />
-                <em>A wider world.</em>
+                <em>in your voice.</em>
               </h1>
               <p>
                 Bring me the book you’ve been meaning to write, the draft you’re ready to finish, or
@@ -80,7 +80,7 @@ function Home() {
                   Discuss your project <span aria-hidden="true">↗</span>
                 </Link>
                 <Link className="editorial-link" to="/portfolio">
-                  See selected work
+                  Browse the portfolio
                 </Link>
               </div>
             </div>

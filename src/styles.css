@@ -474,3 +474,137 @@
     transform: none;
   }
 }
+
+.bureau-masthead {
+  border-top: 4px solid var(--primary);
+}
+.bureau-masthead nav {
+  min-height: 5rem;
+}
+.bureau-masthead nav ul {
+  gap: clamp(0.8rem, 2.3vw, 2rem);
+}
+.bureau-masthead nav ul a[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: 0.4rem;
+}
+.editorial-hero {
+  background: radial-gradient(ellipse at 78% 52%, #55392e, transparent 55%), #241b17;
+}
+.editorial-books {
+  width: min(80%, 360px);
+}
+.editorial-cover {
+  background: repeating-linear-gradient(118deg, transparent 0 3px, #1b090706 3px 5px);
+}
+.about-spread {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5.5rem);
+}
+.about-spread h1 {
+  font:
+    500 clamp(2.6rem, 4.8vw, 4.85rem)/1.07 "Playfair Display",
+    Georgia,
+    serif;
+  letter-spacing: -0.045em;
+}
+.about-spread img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-bottom: 8px solid var(--primary);
+}
+.about-bio {
+  margin-top: 1.5rem;
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: var(--muted-foreground);
+}
+.bureau-colophon {
+  background: #281918;
+  border-top: 5px solid #a84e52;
+  color: #fff4e5;
+}
+.colophon-main {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  align-items: end;
+  gap: 2rem;
+  padding-block: clamp(3rem, 7vw, 6rem);
+}
+.colophon-name {
+  font:
+    500 clamp(3rem, 8vw, 7rem)/0.9 "Playfair Display",
+    Georgia,
+    serif;
+  letter-spacing: -0.06em;
+}
+.colophon-name span {
+  color: #e6a190;
+}
+.colophon-project {
+  border-left: 1px solid #94716a;
+  padding-left: clamp(1rem, 4vw, 3rem);
+}
+.colophon-project h2 {
+  font:
+    500 clamp(1.6rem, 3.5vw, 2.7rem)/1.15 "Playfair Display",
+    Georgia,
+    serif;
+}
+.colophon-cta {
+  display: inline-flex;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid #dba793;
+}
+.colophon-nav,
+.colophon-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.8rem;
+  border-top: 1px solid #80625b;
+  padding-block: 1.1rem;
+}
+.colophon-meta {
+  justify-content: space-between;
+  font-size: 0.88rem;
+  color: #e3c9bc;
+}
+.bureau-colophon a:hover,
+.bureau-colophon a:focus-visible {
+  color: #fff4e5;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+.contact-icons {
+  display: flex;
+  gap: 0.7rem;
+  margin-top: 1.2rem;
+}
+.contact-icons a {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+}
+.contact-icons a:hover,
+.contact-icons a:focus-visible {
+  background: #f1dbca;
+  color: #401f20;
+}
+@media (max-width: 720px) {
+  .about-spread,
+  .colophon-main {
+    grid-template-columns: 1fr;
+  }
+  .colophon-project {
+    border-left: 0;
+    padding-left: 0;
+  }
+}
