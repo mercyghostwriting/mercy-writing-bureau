@@ -104,8 +104,7 @@ const brokeToWealth: Project = {
   genre: "Personal Finance and Wealth Building",
   status: "Completed manuscript",
   category: "Personal Development",
-  service:
-    "Nonfiction editing, rewriting, structural development, and manuscript refinement",
+  service: "Nonfiction editing, rewriting, structural development, and manuscript refinement",
   wordCount: "Approximately 186–187 formatted pages",
   summary:
     "A practical personal-finance book designed to help readers improve their financial habits, reduce unnecessary spending, manage debt, increase income, and build long-term wealth. The manuscript combines straightforward explanations with weekly missions, examples, exercises, and realistic action steps.",
@@ -135,7 +134,6 @@ export const projects: Project[] = [
 export function getProject(id: string) {
   return projects.find((p) => p.id === id);
 }
-
 
 export const services = [
   {
@@ -308,7 +306,7 @@ export const trustBar = [
   "Publishing-Ready Manuscripts",
 ];
 
-export const CONTACT_EMAIL = "mercy.ghostwriting@gmaill.com";
+export const CONTACT_EMAIL = "mercymatt.ghostwrite@gmail.com";
 
 export const SOCIAL_LINKS = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/mercy-oyedele-1181803b9/" },

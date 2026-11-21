@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 const NAV = [
   { label: "Services", to: "/services" },
+  { label: "Translation", to: "/services", hash: "translation" },
   { label: "Portfolio", to: "/portfolio" },
   { label: "How I Work", to: "/process" },
   { label: "About", to: "/about" },
@@ -55,6 +56,7 @@ export function SiteNav() {
             <li key={item.label}>
               <Link
                 to={item.to}
+                hash={"hash" in item ? item.hash : undefined}
                 activeProps={{ className: "text-accent" }}
                 className="text-[0.82rem] tracking-wide text-muted-foreground transition-colors hover:text-accent"
               >
@@ -65,7 +67,7 @@ export function SiteNav() {
         </ul>
 
         <Link to="/contact" className="bureau-button hidden lg:inline-flex">
-          Discuss Your Book
+          Discuss Your Project
         </Link>
 
         <button
@@ -91,6 +93,7 @@ export function SiteNav() {
               <li key={item.label}>
                 <Link
                   to={item.to}
+                  hash={"hash" in item ? item.hash : undefined}
                   onClick={() => setOpen(false)}
                   className="block border-b border-border/60 py-3 text-sm text-foreground"
                 >
@@ -104,7 +107,7 @@ export function SiteNav() {
                 onClick={() => setOpen(false)}
                 className="block rounded-sm bg-primary px-5 py-3 text-center text-[0.78rem] font-medium tracking-wider text-primary-foreground uppercase"
               >
-                Discuss Your Book
+                Discuss Your Project
               </Link>
             </li>
           </ul>

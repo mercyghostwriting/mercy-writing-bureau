@@ -1,17 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useRef } from "react";
-import seatedPhoto from "@/assets/mercy-seated.jpg";
 import portrait from "@/assets/portrait.jpg";
-import deskPhoto from "@/assets/mercy-desk.jpg";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
-import { BookOpen, BookText, FilePenLine, Layers, PenLine, Type, ArrowUpRight } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
     meta: [
-      { title: "The Wrting Bureau | Book Ghostwriting & Editing" },
+      { title: "The Wrting Bureau | Book Writing, Editing & Translation" },
       {
         name: "description",
         content:
@@ -19,7 +15,7 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:title",
-        content: "The Wrting Bureau | Book Ghostwriting & Editing",
+        content: "The Wrting Bureau | Book Writing, Editing & Translation",
       },
       {
         property: "og:description",
@@ -48,202 +44,134 @@ export const Route = createFileRoute("/")({
 });
 
 const offers = [
-  { title: "Book ghostwriting", detail: "For an idea, notes, or a partial draft.", icon: PenLine },
-  {
-    title: "Memoir writing",
-    detail: "For the life story you want to put on paper.",
-    icon: BookOpen,
-  },
-  { title: "Business books", detail: "For expertise readers can put to work.", icon: BookText },
-  { title: "Book outlining", detail: "For a chapter plan before you start writing.", icon: Layers },
-  {
-    title: "Manuscript editing",
-    detail: "For a draft that needs structure or polish.",
-    icon: FilePenLine,
-  },
-  { title: "KDP formatting", detail: "For print and ebook files ready to upload.", icon: Type },
+  [
+    "Book writing",
+    "Build a memoir, novel, or nonfiction book from interviews, notes, or an outline.",
+  ],
+  [
+    "Editing & publishing",
+    "Strengthen your draft, polish the prose, or prepare the manuscript for print and ebook.",
+  ],
+  [
+    "Translation",
+    "Bring a manuscript or document to readers in another language while keeping its meaning, tone, and intent.",
+  ],
 ];
 
 function Home() {
-  const page = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const elements = page.current?.querySelectorAll("[data-reveal]") ?? [];
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting) continue;
-          if (!preference.matches) {
-            entry.target.animate(
-              [
-                { opacity: 0.25, transform: "translateY(24px)" },
-                { opacity: 1, transform: "translateY(0)" },
-              ],
-              { duration: 650, easing: "cubic-bezier(.2,.7,.2,1)" },
-            );
-          }
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.12 },
-    );
-    elements.forEach((element) => observer.observe(element));
-    return () => observer.disconnect();
-  }, []);
   return (
-    <div className="bureau-home" ref={page}>
+    <div className="editorial-home">
       <SiteNav />
       <main>
-        <section className="bureau-hero">
-          <div className="bureau-wrap bureau-hero-grid">
-            <div className="bureau-intro">
+        <section className="editorial-hero">
+          <div className="editorial-wrap editorial-hero-grid">
+            <div className="editorial-hero-copy">
+              <p className="editorial-label">Book writing · Editing · Translation</p>
               <h1>
-                Your story.
+                Your words.
                 <br />
-                Your voice.
-                <br />
-                <em>A book to be proud of.</em>
+                <em>A wider world.</em>
               </h1>
               <p>
-                I’m Mercy, a book ghostwriter and editor. Bring me your idea, notes, or draft, and
-                we’ll figure out what your book needs next.
+                Bring me the book you’ve been meaning to write, the draft you’re ready to finish, or
+                the work you want to share in another language.
               </p>
-              <div className="bureau-actions">
+              <div className="editorial-actions">
                 <Link className="bureau-button" to="/contact">
-                  Discuss your book <ArrowUpRight aria-hidden="true" size={17} />
+                  Discuss your project <span aria-hidden="true">↗</span>
                 </Link>
-                <Link className="bureau-text-link" to="/portfolio">
-                  See my work
+                <Link className="editorial-link" to="/portfolio">
+                  See selected work
                 </Link>
               </div>
             </div>
-            <div className="bureau-portrait-group">
-              <div className="bureau-portrait">
-                <img
-                  src={portrait}
-                  width={810}
-                  height={1080}
-                  alt="Mercy, founder of The Wrting Bureau"
-                  fetchPriority="high"
-                />
-                <span>Mercy · Ghostwriter &amp; editor</span>
-              </div>
-              <div className="bureau-photo-note">
-                <img
-                  src={seatedPhoto}
-                  alt="Mercy working on a writing project"
-                  width={120}
-                  height={120}
-                />
-                <p>
-                  Good books start
-                  <br />
-                  with a conversation.
-                </p>
+            <div className="editorial-books" aria-hidden="true">
+              <div className="editorial-book-back" />
+              <div className="editorial-book">
+                <div className="editorial-cover">
+                  <span>THE WRTING BUREAU</span>
+                  <strong>
+                    From
+                    <br />
+                    first word
+                    <br />
+                    <i>to final page.</i>
+                  </strong>
+                  <span>WRITING / EDITING / TRANSLATION</span>
+                </div>
               </div>
             </div>
           </div>
         </section>
-
-        <section className="bureau-lavender" aria-labelledby="bureau-services">
-          <div className="bureau-wrap">
-            <div className="bureau-assurances">
-              <span>Confidential collaboration</span>
-              <span>Your voice throughout</span>
-              <span>You own the manuscript</span>
-            </div>
-            <div className="bureau-service-panel" data-reveal>
-              <h2 id="bureau-services">What does your book need?</h2>
-              <div className="bureau-services">
-                {offers.map(({ title, detail, icon: Icon }) => (
-                  <Link to="/services" key={title}>
-                    <Icon size={28} strokeWidth={1.6} aria-hidden="true" />
-                    <h3>{title}</h3>
-                    <p>{detail}</p>
+        <section className="editorial-wrap editorial-services" aria-labelledby="service-heading">
+          <h2 id="service-heading">Where are you in the process?</h2>
+          <div className="editorial-grid">
+            {offers.map(([title, detail]) => (
+              <article key={title}>
+                <h3>{title}</h3>
+                <p>{detail}</p>
+                {title === "Translation" ? (
+                  <Link className="editorial-link" to="/services" hash="translation">
+                    Explore translation ↗
                   </Link>
-                ))}
-              </div>
+                ) : (
+                  <Link className="editorial-link" to="/services">
+                    Explore {title.toLowerCase()} ↗
+                  </Link>
+                )}
+              </article>
+            ))}
+          </div>
+        </section>
+        <section className="editorial-work">
+          <div className="editorial-wrap">
+            <div className="editorial-section-head">
+              <h2>Selected book projects</h2>
+              <Link className="editorial-link" to="/portfolio">
+                View portfolio ↗
+              </Link>
+            </div>
+            <div className="editorial-grid editorial-cases">
+              <Link to="/portfolio/$projectId" params={{ projectId: "project-01" }}>
+                <p>Manuscript development &amp; publishing preparation</p>
+                <h3>The Numbers Game!</h3>
+                <span>Read case study ↗</span>
+              </Link>
+              <Link to="/portfolio/$projectId" params={{ projectId: "project-02" }}>
+                <p>Nonfiction editing &amp; rewriting</p>
+                <h3>From Being Broke to Building Wealth</h3>
+                <span>Read case study ↗</span>
+              </Link>
             </div>
           </div>
         </section>
-
-        <section className="bureau-wrap bureau-work" data-reveal>
-          <div className="bureau-section-heading">
-            <h2>Selected work</h2>
-            <Link className="bureau-text-link" to="/portfolio">
-              View portfolio
-            </Link>
-          </div>
-          <div className="bureau-cases">
-            <Link to="/portfolio/$projectId" params={{ projectId: "project-01" }}>
-              <p>Manuscript development &amp; publishing preparation</p>
-              <h3>The Numbers Game!</h3>
-              <span>
-                Read case study <ArrowUpRight aria-hidden="true" size={16} />
-              </span>
-            </Link>
-            <Link to="/portfolio/$projectId" params={{ projectId: "project-02" }}>
-              <p>Nonfiction editing &amp; rewriting</p>
-              <h3>From Being Broke to Building Wealth</h3>
-              <span>
-                Read case study <ArrowUpRight aria-hidden="true" size={16} />
-              </span>
-            </Link>
-          </div>
-        </section>
-
-        <section className="bureau-wrap bureau-about" data-reveal>
-          <img src={deskPhoto} alt="Mercy at her writing desk" loading="lazy" />
+        <section className="editorial-wrap editorial-about">
+          <img
+            src={portrait}
+            width={810}
+            height={1080}
+            alt="Mercy, founder of The Wrting Bureau"
+            loading="lazy"
+          />
           <div>
-            <h2>From first conversation to final draft</h2>
+            <h2>Meet Mercy</h2>
             <p>
-              We’ll start with written questions about your book and the people you’re writing for.
-              Then we’ll agree on the scope, timeline, and what you’ll review along the way.
+              I’ll work with you directly. We start with a written conversation about what you have,
+              who it’s for, and what you need delivered. You’ll know the scope and timeline before
+              work begins.
             </p>
-            <Link className="bureau-text-link" to="/process">
-              How I work
+            <Link className="editorial-link" to="/process">
+              How I work ↗
             </Link>
           </div>
         </section>
-
-        <section className="bureau-wrap bureau-steps" data-reveal aria-labelledby="steps-title">
-          <div>
-            <h2 id="steps-title">
-              A clear plan.
-              <br />
-              Room for your ideas.
-            </h2>
-            <p>
-              You’ll know what comes next, and have time to review the work as your book takes
-              shape.
-            </p>
-            <Link className="bureau-text-link" to="/process">
-              Explore the process
+        <section className="editorial-close">
+          <div className="editorial-wrap">
+            <h2>Tell me what you’re working on.</h2>
+            <Link className="bureau-button" to="/contact">
+              Discuss your project ↗
             </Link>
           </div>
-          <ol>
-            <li>
-              <h3>Share your idea</h3>
-              <p>Tell me about your reader, your material, and the book you want to create.</p>
-            </li>
-            <li>
-              <h3>Shape the manuscript</h3>
-              <p>We agree on the outline, scope, and review points before the writing begins.</p>
-            </li>
-            <li>
-              <h3>Review and refine</h3>
-              <p>You review the draft, share your feedback, and receive the agreed final files.</p>
-            </li>
-          </ol>
-        </section>
-        <section className="bureau-wrap bureau-bottom" data-reveal>
-          <div>
-            <h2>Tell me about your book</h2>
-            <p>A few lines about where you are and what you need are enough to start.</p>
-          </div>
-          <Link className="bureau-button" to="/contact">
-            Discuss your book <ArrowUpRight aria-hidden="true" size={17} />
-          </Link>
         </section>
       </main>
       <SiteFooter />
