@@ -39,26 +39,45 @@ function About() {
               <div className="about-bio space-y-4">
                 <p>
                   Seven years in, and I still love the moment a client reads their finished book and
-                  says it sounds like them. That’s the job.
+                  says it sounds like them. That’s the job. I’m Mercy, the founder of The Wrting
+                  Bureau, where I help authors turn ideas, interviews, and unfinished drafts into
+                  books they’re proud to put their names on.
                 </p>
                 <p>
-                  I ghostwrite fiction, nonfiction, memoirs, biographies, and ebooks. I also develop
-                  book ideas and help authors rewrite, edit, and proofread manuscripts they’ve
-                  already started.
+                  I ghostwrite fiction, nonfiction, memoirs, biographies, business books, and
+                  ebooks. In a memoir, my work might begin with sorting through years of memories to
+                  find the story that connects them. In a business book, it might mean turning years
+                  of experience into chapters a reader can use. For fiction, I pay particular
+                  attention to what the characters want, how the tension builds, and whether each
+                  scene earns its place.
                 </p>
                 <p>
-                  Referrals from clients and colleagues brought me to Fiverr, where authors can
-                  hire me directly. I’m also part of{" "}
+                  You can bring me a stack of notes, voice recordings, a chapter outline, or a draft
+                  that’s lost its direction. I start with written questions about your readers and
+                  what you want them to take from the book. For a full manuscript, we can agree on
+                  the chapter plan and review a sample chapter before I draft the rest. That gives
+                  us a chance to get the voice right while changes are still easy to make.
+                </p>
+                <p>
+                  I also take on book development, rewriting, editing, and proofreading. If your
+                  manuscript needs structural work, I look at how the chapters fit together and
+                  where readers might lose the thread. If the structure is already sound, I can
+                  focus on the sentences, consistency, and final checks. I also help prepare books
+                  for print and ebook publication.
+                </p>
+                <p>
+                  Referrals from clients and colleagues brought me to Fiverr, and I work
+                  independently through The Wrting Bureau and collaborate with the creative team at{" "}
                   <a className="editorial-link" href="https://theintercontinentalatelier.org/">
                     The Intercontinental Atelier
                   </a>
-                  , so my work spans independent book projects and collaboration with a wider
-                  creative team.
+                  . I keep client material confidential, agree on deadlines before work begins, and
+                  share drafts at milestones so you have a say as the book takes shape.
                 </p>
                 <p>
-                  I keep your material confidential, respect your deadlines, and make sure your
-                  voice carries through the book. If you’ve got an idea sitting in your notes or a
-                  draft you’ve stalled on, message me and let’s finish it.
+                  If your book is still sitting in your notes or you’ve reached a point where you
+                  can’t see what the draft needs, tell me where you are. We can work out what it’ll
+                  take to finish it.
                 </p>
               </div>
               <div className="editorial-actions">

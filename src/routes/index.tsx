@@ -167,6 +167,9 @@ function Home() {
           <div>
             <h2>Meet Mercy</h2>
             <p>
+              <strong>Founder of The Wrting Bureau</strong>
+            </p>
+            <p>
               I’ll work with you directly. We start with a written conversation about what you have,
               who it’s for, and what you need delivered. You’ll know the scope and timeline before
               work begins.
@@ -179,9 +182,22 @@ function Home() {
         <section className="project-inquiry" aria-labelledby="inquiry-title">
           <div className="editorial-wrap project-inquiry-grid">
             <div>
-              <h2 id="inquiry-title">Tell me about your book.</h2>
-              <p>Share what you’re writing, editing, or translating and where you’d like help. A few lines are enough to get started.</p>
-              <Link to="/portfolio" className="editorial-link">Browse the portfolio ↗</Link>
+              <h2 id="inquiry-title">Tell me about your project.</h2>
+              <p>
+                Share what you’re writing, editing, or translating and where you’d like help. A few
+                lines are enough to get started.
+              </p>
+              <Link to="/portfolio" className="editorial-link">
+                Browse the portfolio ↗
+              </Link>
+              <img
+                src="/mercy-green.webp"
+                width={720}
+                height={960}
+                alt="Mercy in a green dress"
+                loading="lazy"
+                className="mt-7 w-full max-w-xs border border-border"
+              />
             </div>
             <ContactForm initialService="" />
           </div>

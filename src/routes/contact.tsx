@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/site/PageShell";
 import { ContactForm } from "@/components/site/ContactForm";
-import standingPhoto from "@/assets/mercy-standing.jpg";
 import { ContactIcons } from "@/components/site/ContactIcons";
 
 export const Route = createFileRoute("/contact")({
@@ -41,7 +40,7 @@ function ContactPage() {
         <div>
           <div className="relative overflow-hidden border border-border bg-secondary/40 p-3">
             <img
-              src={standingPhoto}
+              src="/mercy-green.webp"
               alt="Mercy, professional ghostwriter and founder of The Wrting Bureau"
               loading="lazy"
               className="h-full w-full object-cover"
