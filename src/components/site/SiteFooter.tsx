@@ -35,7 +35,7 @@ export function SiteFooter() {
               ] as const
             ).map(([label, to]) => (
               <li key={label}>
-                <Link to={to} className="transition-colors hover:text-accent">
+                <Link to={to} className="transition-colors hover:text-primary-foreground hover:underline focus-visible:text-primary-foreground focus-visible:underline">
                   {label}
                 </Link>
               </li>
@@ -48,7 +48,7 @@ export function SiteFooter() {
           <ul className="mt-5 space-y-2.5 text-sm text-primary-foreground/70">
             {services.slice(0, 6).map((s) => (
               <li key={s.title}>
-                <Link to="/services" className="transition-colors hover:text-accent">
+                <Link to="/services" className="transition-colors hover:text-primary-foreground hover:underline focus-visible:text-primary-foreground focus-visible:underline">
                   {s.title}
                 </Link>
               </li>
@@ -56,7 +56,7 @@ export function SiteFooter() {
           </ul>
           <h3 className="mt-8 text-xs tracking-[0.22em] text-accent uppercase">Contact</h3>
           <p className="mt-4 text-sm text-primary-foreground/70">
-            <a href={`mailto:${CONTACT_EMAIL}`} className="transition-colors hover:text-accent">
+            <a href={`mailto:${CONTACT_EMAIL}`} className="transition-colors hover:text-primary-foreground hover:underline focus-visible:text-primary-foreground focus-visible:underline">
               {CONTACT_EMAIL}
             </a>
           </p>
@@ -67,7 +67,7 @@ export function SiteFooter() {
                 href={s.href}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="transition-colors hover:text-accent"
+                className="transition-colors hover:text-primary-foreground hover:underline focus-visible:text-primary-foreground focus-visible:underline"
               >
                 {s.label}
               </a>
@@ -81,10 +81,10 @@ export function SiteFooter() {
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-6 text-xs text-primary-foreground/60 sm:flex-row sm:items-center sm:justify-between lg:px-8">
           <p>© {new Date().getFullYear()} The Wrting Bureau. All rights reserved.</p>
           <p className="space-x-5">
-            <Link to="/privacy" className="hover:text-accent">
+            <Link to="/privacy" className="hover:text-primary-foreground hover:underline focus-visible:text-primary-foreground focus-visible:underline">
               Privacy Policy
             </Link>
-            <Link to="/terms" className="hover:text-accent">
+            <Link to="/terms" className="hover:text-primary-foreground hover:underline focus-visible:text-primary-foreground focus-visible:underline">
               Terms and Conditions
             </Link>
           </p>
