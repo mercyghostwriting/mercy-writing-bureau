@@ -1,3 +1,4 @@
+import { ContactForm } from "@/components/site/ContactForm";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
@@ -175,12 +176,14 @@ function Home() {
             </Link>
           </div>
         </section>
-        <section className="editorial-close">
-          <div className="editorial-wrap">
-            <h2>Tell me what you’re working on.</h2>
-            <Link className="bureau-button" to="/contact">
-              Discuss your project ↗
-            </Link>
+        <section className="project-inquiry" aria-labelledby="inquiry-title">
+          <div className="editorial-wrap project-inquiry-grid">
+            <div>
+              <h2 id="inquiry-title">Tell me about your book.</h2>
+              <p>Share what you’re writing, editing, or translating and where you’d like help. A few lines are enough to get started.</p>
+              <Link to="/portfolio" className="editorial-link">Browse the portfolio ↗</Link>
+            </div>
+            <ContactForm initialService="" />
           </div>
         </section>
       </main>

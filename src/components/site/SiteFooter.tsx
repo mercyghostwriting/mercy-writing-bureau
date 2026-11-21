@@ -15,30 +15,24 @@ export function SiteFooter() {
   return (
     <footer className="bureau-colophon">
       <div className="editorial-wrap">
-        <div className="colophon-main">
+        <div className="bureau-footer-directory">
           <div>
-            <p className="colophon-name">
-              The Wrting
-              <br />
-              Bureau<span>.</span>
-            </p>
+            <Link to="/" className="colophon-name">The Wrting Bureau<span>.</span></Link>
             <p className="mt-5">Ghostwriting, editing, and translation.</p>
-          </div>
-          <div className="colophon-project">
-            <h2>What are you writing?</h2>
-            <Link to="/contact" className="colophon-cta">
-              Tell me about your project <span aria-hidden="true">↗</span>
-            </Link>
             <ContactIcons />
           </div>
+          <div>
+            <h2>Services</h2>
+            <Link to="/service/$serviceId" params={{ serviceId: "nonfiction" }}>Book ghostwriting</Link>
+            <Link to="/service/$serviceId" params={{ serviceId: "developmental-editing" }}>Manuscript editing</Link>
+            <Link to="/service/$serviceId" params={{ serviceId: "translation" }}>Translation</Link>
+            <Link to="/service/$serviceId" params={{ serviceId: "kdp-formatting" }}>Book formatting</Link>
+          </div>
+          <nav aria-label="Footer navigation">
+            <h2>Explore</h2>
+            {links.map(([label, to]) => <Link key={to} to={to}>{label}</Link>)}
+          </nav>
         </div>
-        <nav className="colophon-nav" aria-label="Footer navigation">
-          {links.map(([label, to]) => (
-            <Link key={to} to={to}>
-              {label}
-            </Link>
-          ))}
-        </nav>
         <div className="colophon-meta">
           <p>© {new Date().getFullYear()} The Wrting Bureau</p>
           <div className="flex flex-wrap gap-5">
