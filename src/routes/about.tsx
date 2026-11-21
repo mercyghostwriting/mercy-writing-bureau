@@ -36,22 +36,31 @@ function About() {
           <div className="about-spread">
             <div>
               <h1>Book Ghostwriter For Fiction, Nonfiction and Ebooks</h1>
-              <p className="about-bio">
-                Seven years in, and I still love the moment a client reads their finished book and
-                says it sounds like them. That's the job. I ghostwrite fiction, nonfiction, memoirs,
-                biographies, and ebooks, and handle book development, rewriting, editing, and
-                proofreading for manuscripts that need polish. Clients and colleagues kept sending
-                referrals my way, so I brought my work to Fiverr. Confidentiality is a given, your
-                voice stays the priority, and deadlines are respected. Got a book idea sitting in
-                your notes or a stalled draft? Message me and let's finish it.
-              </p>
-              <p className="mt-5">
-                I’m also part of{" "}
-                <a className="editorial-link" href="https://theintercontinentalatelier.org/">
-                  The Intercontinental Atelier
-                </a>
-                .
-              </p>
+              <div className="about-bio space-y-4">
+                <p>
+                  Seven years in, and I still love the moment a client reads their finished book and
+                  says it sounds like them. That’s the job.
+                </p>
+                <p>
+                  I ghostwrite fiction, nonfiction, memoirs, biographies, and ebooks. I also develop
+                  book ideas and help authors rewrite, edit, and proofread manuscripts they’ve
+                  already started.
+                </p>
+                <p>
+                  Referrals from clients and colleagues brought me to Fiverr, where authors can
+                  hire me directly. I’m also part of{" "}
+                  <a className="editorial-link" href="https://theintercontinentalatelier.org/">
+                    The Intercontinental Atelier
+                  </a>
+                  , so my work spans independent book projects and collaboration with a wider
+                  creative team.
+                </p>
+                <p>
+                  I keep your material confidential, respect your deadlines, and make sure your
+                  voice carries through the book. If you’ve got an idea sitting in your notes or a
+                  draft you’ve stalled on, message me and let’s finish it.
+                </p>
+              </div>
               <div className="editorial-actions">
                 <Link to="/contact" className="bureau-button inline-flex">
                   Discuss your book ↗

@@ -2,11 +2,12 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 const NAV = [
+  { label: "Home", to: "/" },
   { label: "Services", to: "/services" },
-  { label: "Translation", to: "/service/$serviceId", params: { serviceId: "translation" } },
-  { label: "Portfolio", to: "/portfolio" },
-  { label: "How I Work", to: "/process" },
   { label: "About", to: "/about" },
+  { label: "How I Work", to: "/process" },
+  { label: "Portfolio", to: "/portfolio" },
+  { label: "FAQ", to: "/faq" },
 ] as const;
 
 export function SiteNav() {
@@ -56,7 +57,7 @@ export function SiteNav() {
             <li key={item.label}>
               <Link
                 to={item.to}
-                params={"params" in item ? item.params : undefined}
+                activeOptions={{ exact: item.to === "/" }}
                 activeProps={{ className: "text-accent" }}
                 className="text-[0.82rem] tracking-wide text-muted-foreground transition-colors hover:text-accent"
               >
@@ -67,7 +68,7 @@ export function SiteNav() {
         </ul>
 
         <Link to="/contact" className="bureau-button hidden lg:inline-flex">
-          Discuss Your Project
+          Contact Us
         </Link>
 
         <button
@@ -93,7 +94,7 @@ export function SiteNav() {
               <li key={item.label}>
                 <Link
                   to={item.to}
-                  params={"params" in item ? item.params : undefined}
+                  activeOptions={{ exact: item.to === "/" }}
                   onClick={() => setOpen(false)}
                   className="block border-b border-border/60 py-3 text-sm text-foreground"
                 >
@@ -107,7 +108,7 @@ export function SiteNav() {
                 onClick={() => setOpen(false)}
                 className="block rounded-sm bg-primary px-5 py-3 text-center text-[0.78rem] font-medium tracking-wider text-primary-foreground uppercase"
               >
-                Discuss Your Project
+                Contact Us
               </Link>
             </li>
           </ul>

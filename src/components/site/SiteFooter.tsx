@@ -2,11 +2,13 @@ import { Link } from "@tanstack/react-router";
 import { ContactIcons } from "./ContactIcons";
 
 const links = [
-  ["Selected work", "/portfolio"],
+  ["Home", "/"],
   ["Services", "/services"],
-  ["Process", "/process"],
-  ["About Mercy", "/about"],
+  ["About", "/about"],
+  ["How I Work", "/process"],
+  ["Portfolio", "/portfolio"],
   ["FAQ", "/faq"],
+  ["Contact Us", "/contact"],
 ] as const;
 
 export function SiteFooter() {
