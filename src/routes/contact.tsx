@@ -36,14 +36,16 @@ function ContactPage() {
       title="Tell Me About Your Project"
       intro="Share a few details about your book, draft, or translation project so I can advise on scope and timing."
     >
-      <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr]">
+      <div className="grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
         <div>
-          <div className="relative overflow-hidden border border-border bg-secondary/40 p-3">
+          <div className="overflow-hidden border border-border bg-secondary/40">
             <img
               src="/mercy-green.webp"
               alt="Mercy, professional ghostwriter and founder of The Wrting Bureau"
               loading="lazy"
-              className="h-full w-full object-cover"
+              width={720}
+              height={960}
+              className="aspect-[5/4] w-full object-cover object-[center_35%]"
             />
           </div>
           <div className="mt-6">

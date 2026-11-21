@@ -1,5 +1,5 @@
 import { PortfolioReel } from "@/components/site/PortfolioReel";
-import { ContactForm } from "@/components/site/ContactForm";
+import { useEffect, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
@@ -79,29 +79,14 @@ function Home() {
               </p>
               <div className="editorial-actions">
                 <Link className="bureau-button" to="/contact">
-                  Discuss your project <span aria-hidden="true">↗</span>
+                  Discuss your project
                 </Link>
                 <Link className="editorial-link" to="/portfolio">
                   Browse the portfolio
                 </Link>
               </div>
             </div>
-            <div className="editorial-books" aria-hidden="true">
-              <div className="editorial-book-back" />
-              <div className="editorial-book">
-                <div className="editorial-cover">
-                  <span>THE WRTING BUREAU</span>
-                  <strong>
-                    From
-                    <br />
-                    first word
-                    <br />
-                    <i>to final page.</i>
-                  </strong>
-                  <span>WRITING / EDITING / TRANSLATION</span>
-                </div>
-              </div>
-            </div>
+            <HeroFilm />
           </div>
         </section>
         <section className="editorial-work">
@@ -162,31 +147,51 @@ function Home() {
             </Link>
           </div>
         </section>
-        <section className="project-inquiry" aria-labelledby="inquiry-title">
-          <div className="editorial-wrap project-inquiry-grid">
-            <div>
-              <h2 id="inquiry-title">Tell me about your project.</h2>
-              <p>
-                Share what you’re writing, editing, or translating and where you’d like help. A few
-                lines are enough to get started.
-              </p>
-              <Link to="/portfolio" className="editorial-link">
-                Browse the portfolio ↗
-              </Link>
-              <img
-                src="/mercy-green.webp"
-                width={720}
-                height={960}
-                alt="Mercy in a green dress"
-                loading="lazy"
-                className="mt-7 w-full max-w-xs border border-border"
-              />
-            </div>
-            <ContactForm initialService="" />
-          </div>
-        </section>
       </main>
       <SiteFooter />
+    </div>
+  );
+}
+
+function HeroFilm() {
+  const video = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
+
+  useEffect(() => {
+    const clip = video.current;
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const followPreference = () => {
+      if (preference.matches) clip?.pause();
+      else void clip?.play().catch(() => {});
+    };
+    followPreference();
+    preference.addEventListener("change", followPreference);
+    return () => preference.removeEventListener("change", followPreference);
+  }, []);
+
+  return (
+    <div className="editorial-film">
+      <video
+        ref={video}
+        src="/book-pages.mp4"
+        poster="/book-pages.webp"
+        preload="metadata"
+        muted
+        loop
+        playsInline
+        aria-hidden="true"
+        onPlay={() => setPlaying(true)}
+        onPause={() => setPlaying(false)}
+      />
+      <button
+        type="button"
+        onClick={() => {
+          if (playing) video.current?.pause();
+          else void video.current?.play().catch(() => {});
+        }}
+      >
+        {playing ? "Pause video" : "Play video"}
+      </button>
     </div>
   );
 }

@@ -29,7 +29,7 @@ function ServicesPage() {
     <PageShell
       eyebrow="Services"
       title="Book Writing, Editing & Translation"
-      intro="Whether you need a complete manuscript written from scratch or a finished draft brought up to publishing standard, the work is scoped to your book, not a package."
+      intro="Start with a book idea, a draft that needs editing, or a manuscript that’s ready for formatting or translation. Choose the service that fits the work in front of you."
     >
       <div className="service-tiles grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
         {services.map((s) => (
@@ -38,13 +38,13 @@ function ServicesPage() {
             className="group bg-background p-8 transition-colors hover:bg-card"
           >
             <h2 className="mt-3 font-display text-2xl leading-snug">{s.title}</h2>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.description}</p>
+            <p className="mt-3 leading-relaxed text-muted-foreground">{s.description}</p>
             <Link
               to="/service/$serviceId"
               params={{ serviceId: s.id }}
               className="mt-6 inline-flex items-center gap-2 text-[0.75rem] tracking-[0.14em] uppercase transition-colors group-hover:text-accent"
             >
-              View service <span aria-hidden>→</span>
+              Explore {s.title.toLowerCase()}
             </Link>
           </article>
         ))}

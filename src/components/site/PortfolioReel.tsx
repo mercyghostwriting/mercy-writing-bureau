@@ -8,28 +8,35 @@ export function PortfolioReel() {
   const [paused, setPaused] = useState(false);
   const [interacting, setInteracting] = useState(false);
 
-  function advance(direction: number, loop = false) {
+  function advance(direction: number) {
     const rail = track.current;
     const card = rail?.firstElementChild;
     if (!rail || !card) return;
-    const atEnd = rail.scrollLeft >= rail.scrollWidth - rail.clientWidth - 2;
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const max = rail.scrollWidth - rail.clientWidth;
+    const step = card.getBoundingClientRect().width + parseFloat(getComputedStyle(rail).columnGap);
+    let target = rail.scrollLeft + direction * step;
+    if (direction > 0 && rail.scrollLeft >= max - 2) target = 0;
+    if (direction < 0 && rail.scrollLeft <= 2) target = max;
     rail.scrollTo({
-      left:
-        loop && atEnd ? 0 : rail.scrollLeft + direction * (card.getBoundingClientRect().width + 16),
-      behavior: reduced ? "instant" : "smooth",
+      left: Math.max(0, Math.min(target, max)),
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "instant"
+        : "smooth",
     });
   }
 
   useEffect(() => {
-    if (paused || interacting || window.matchMedia("(prefers-reduced-motion: reduce)").matches)
-      return;
-    const timer = window.setInterval(() => advance(1, true), 3300);
+    if (paused || interacting) return;
+    const timer = window.setInterval(() => {
+      const bounds = track.current?.getBoundingClientRect();
+      if (!bounds || bounds.bottom <= 0 || bounds.top >= window.innerHeight) return;
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) advance(1);
+    }, 3300);
     return () => window.clearInterval(timer);
   }, [paused, interacting]);
 
   return (
-    <div onMouseEnter={() => setInteracting(true)} onMouseLeave={() => setInteracting(false)}>
+    <div>
       <div className="reel-controls">
         <button type="button" onClick={() => advance(-1)} aria-label="Previous projects">
           ←
@@ -46,8 +53,10 @@ export function PortfolioReel() {
         className="portfolio-reel"
         aria-label="Ten portfolio slots"
         tabIndex={0}
+        onMouseEnter={() => setInteracting(true)}
+        onMouseLeave={() => setInteracting(false)}
         onFocus={() => setPaused(true)}
-        onPointerDown={() => setPaused(true)}
+        onTouchStart={() => setPaused(true)}
       >
         {slots.map((slot) => (
           <article key={slot} className="reel-card">
