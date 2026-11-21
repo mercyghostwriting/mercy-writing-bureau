@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import portrait from "@/assets/portrait.jpg";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
 
@@ -103,26 +102,6 @@ function Home() {
             </div>
           </div>
         </section>
-        <section className="editorial-wrap editorial-services" aria-labelledby="service-heading">
-          <h2 id="service-heading">Where are you in the process?</h2>
-          <div className="editorial-grid">
-            {offers.map(([title, detail]) => (
-              <article key={title}>
-                <h3>{title}</h3>
-                <p>{detail}</p>
-                {title === "Translation" ? (
-                  <Link className="editorial-link" to="/services" hash="translation">
-                    Explore translation ↗
-                  </Link>
-                ) : (
-                  <Link className="editorial-link" to="/services">
-                    Explore {title.toLowerCase()} ↗
-                  </Link>
-                )}
-              </article>
-            ))}
-          </div>
-        </section>
         <section className="editorial-work">
           <div className="editorial-wrap">
             <div className="editorial-section-head">
@@ -145,11 +124,35 @@ function Home() {
             </div>
           </div>
         </section>
+        <section className="editorial-wrap editorial-services" aria-labelledby="service-heading">
+          <h2 id="service-heading">Where are you in the process?</h2>
+          <div className="editorial-grid">
+            {offers.map(([title, detail]) => (
+              <article key={title}>
+                <h3>{title}</h3>
+                <p>{detail}</p>
+                {title === "Translation" ? (
+                  <Link
+                    className="editorial-link"
+                    to="/service/$serviceId"
+                    params={{ serviceId: "translation" }}
+                  >
+                    Explore translation ↗
+                  </Link>
+                ) : (
+                  <Link className="editorial-link" to="/services">
+                    Explore {title.toLowerCase()} ↗
+                  </Link>
+                )}
+              </article>
+            ))}
+          </div>
+        </section>
         <section className="editorial-wrap editorial-about">
           <img
-            src={portrait}
-            width={810}
-            height={1080}
+            src="/mercy-about.webp"
+            width={720}
+            height={960}
             alt="Mercy, founder of The Wrting Bureau"
             loading="lazy"
           />
@@ -160,8 +163,8 @@ function Home() {
               who it’s for, and what you need delivered. You’ll know the scope and timeline before
               work begins.
             </p>
-            <Link className="editorial-link" to="/process">
-              How I work ↗
+            <Link className="editorial-link" to="/about">
+              More about Mercy ↗
             </Link>
           </div>
         </section>

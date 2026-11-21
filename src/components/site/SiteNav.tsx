@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 const NAV = [
   { label: "Services", to: "/services" },
-  { label: "Translation", to: "/services", hash: "translation" },
+  { label: "Translation", to: "/service/$serviceId", params: { serviceId: "translation" } },
   { label: "Portfolio", to: "/portfolio" },
   { label: "How I Work", to: "/process" },
   { label: "About", to: "/about" },
@@ -56,7 +56,7 @@ export function SiteNav() {
             <li key={item.label}>
               <Link
                 to={item.to}
-                hash={"hash" in item ? item.hash : undefined}
+                params={"params" in item ? item.params : undefined}
                 activeProps={{ className: "text-accent" }}
                 className="text-[0.82rem] tracking-wide text-muted-foreground transition-colors hover:text-accent"
               >
@@ -93,7 +93,7 @@ export function SiteNav() {
               <li key={item.label}>
                 <Link
                   to={item.to}
-                  hash={"hash" in item ? item.hash : undefined}
+                  params={"params" in item ? item.params : undefined}
                   onClick={() => setOpen(false)}
                   className="block border-b border-border/60 py-3 text-sm text-foreground"
                 >

@@ -40,10 +40,11 @@ function ServicesPage() {
             <h2 className="mt-3 font-display text-2xl leading-snug">{s.title}</h2>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.description}</p>
             <Link
-              to="/contact"
+              to="/service/$serviceId"
+              params={{ serviceId: s.id }}
               className="mt-6 inline-flex items-center gap-2 text-[0.75rem] tracking-[0.14em] uppercase transition-colors group-hover:text-accent"
             >
-              Enquire <span aria-hidden>→</span>
+              View service <span aria-hidden>→</span>
             </Link>
           </article>
         ))}
@@ -60,46 +61,17 @@ function ServicesPage() {
           material.
         </p>
         <Link
-          to="/contact"
-          search={{ service: "translation" }}
+          to="/service/$serviceId"
+          params={{ serviceId: "translation" }}
           className="bureau-button mt-6 inline-flex"
         >
-          Request a translation quote ↗
+          View translation services ↗
         </Link>
       </section>
 
-      <div className="mt-20 grid items-center gap-12 lg:grid-cols-[1fr_0.9fr]">
-        <div className="rule-line">
-          <h2 className="font-display text-3xl leading-tight sm:text-4xl">
-            Not sure which service you need?
-          </h2>
-          <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-            Send me what you have — an idea, an outline, a half-finished draft — and I'll tell you
-            honestly what the book needs and what it would take to get there.
-          </p>
-          <Link
-            to="/contact"
-            className="mt-8 inline-block rounded-sm bg-primary px-7 py-3.5 text-[0.78rem] font-medium tracking-[0.16em] text-primary-foreground uppercase transition-colors hover:bg-accent"
-          >
-            Discuss Your Book
-          </Link>
-        </div>
-        <div className="relative">
-          <div className="absolute -top-4 -left-4 hidden h-full w-full border border-accent/40 sm:block" />
-          <div className="relative overflow-hidden border border-border bg-secondary/40 p-3">
-            <video
-              controls
-              playsInline
-              preload="metadata"
-              aria-label="Introduction to The Wrting Bureau"
-              className="mx-auto block aspect-[9/16] w-full max-w-[320px] bg-black"
-            >
-              <source src="/intro.mp4" type="video/mp4" />
-              <a href="/intro.mp4">Download the intro video</a>
-            </video>
-          </div>
-        </div>
-      </div>
+      <Link to="/contact" className="bureau-button mt-10 inline-flex">
+        Discuss your project ↗
+      </Link>
     </PageShell>
   );
 }

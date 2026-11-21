@@ -13,7 +13,10 @@ export const Route = createFileRoute("/portfolio/$projectId")({
         <p className="mt-4 text-muted-foreground">
           That case study doesn't exist or has been removed.
         </p>
-        <Link to="/portfolio" className="mt-8 inline-block text-accent underline underline-offset-4">
+        <Link
+          to="/portfolio"
+          className="mt-8 inline-block text-accent underline underline-offset-4"
+        >
           Back to portfolio
         </Link>
       </div>
@@ -92,11 +95,11 @@ function CaseStudy() {
                     className="h-full w-full object-cover"
                   />
                 ) : (
-                  <div className="px-6 text-center">
-                    <p className="eyebrow">{project.internalLabel}</p>
-                    <p className="mt-3 font-display text-xl text-muted-foreground">
-                      Add approved cover image
-                    </p>
+                  <div
+                    aria-hidden="true"
+                    className="m-6 flex h-4/5 w-3/4 items-center justify-center border border-primary-foreground/40 bg-primary p-6 text-center font-display text-3xl text-primary-foreground"
+                  >
+                    {project.confidential ? "Confidential Project" : project.title}
                   </div>
                 )}
               </div>
@@ -148,7 +151,6 @@ function CaseStudy() {
                   </div>
                 ) : null}
               </dl>
-
 
               <Row label="Project overview" value={project.overview} />
               <Row label="Client's objective" value={project.objective} />

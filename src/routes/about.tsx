@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import portrait from "@/assets/mercy-standing.jpg";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { benefits } from "@/data/content";
@@ -39,7 +38,7 @@ function About() {
               <div className="absolute -top-4 -left-4 hidden h-full w-full border border-accent/40 sm:block" />
               <div className="relative overflow-hidden border border-border bg-secondary/40 p-3">
                 <img
-                  src={portrait}
+                  src="/mercy-about.webp"
                   alt="Portrait of the ghostwriter behind The Wrting Bureau"
                   className="h-full w-full object-cover"
                 />
@@ -69,10 +68,6 @@ function About() {
                   selected genres. I also take on developmental editing, proofreading, and KDP
                   formatting for authors who have already written their draft.
                 </p>
-                <p className="text-sm text-foreground/70 italic">
-                  [Editable placeholder: add your background, training, years of experience,
-                  completed book count, and any verified credentials or press mentions here.]
-                </p>
               </div>
               <div className="mt-9 flex flex-wrap gap-3">
                 <Link
@@ -95,7 +90,10 @@ function About() {
             <h2 className="font-display text-3xl">How I Work</h2>
             <ul className="mt-8 grid gap-x-10 gap-y-5 sm:grid-cols-2">
               {benefits.map((b) => (
-                <li key={b} className="flex gap-3 border-b border-border pb-4 text-sm leading-relaxed">
+                <li
+                  key={b}
+                  className="flex gap-3 border-b border-border pb-4 text-sm leading-relaxed"
+                >
                   <span aria-hidden className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                   {b}
                 </li>

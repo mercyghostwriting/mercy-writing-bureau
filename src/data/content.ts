@@ -137,46 +137,55 @@ export function getProject(id: string) {
 
 export const services = [
   {
+    id: "nonfiction",
     title: "Nonfiction Ghostwriting",
     description:
       "Turn expertise, research, and lived experience into a structured nonfiction book that reads clearly and sounds like you.",
   },
   {
+    id: "business-books",
     title: "Business and Leadership Books",
     description:
       "Position your ideas with authority — frameworks, case studies, and lessons shaped into a book that earns trust with clients and peers.",
   },
   {
+    id: "memoir",
     title: "Memoir and Autobiography Writing",
     description:
       "Your life story told with warmth and narrative shape, preserving the details, voice, and emotion that make it yours.",
   },
   {
+    id: "fiction",
     title: "Fiction Ghostwriting",
     description:
       "Character-driven novels built on a solid structure, consistent voice, and scenes that keep readers turning pages.",
   },
   {
+    id: "thrillers",
     title: "Mystery and Thriller Writing",
     description:
       "Tight plotting, credible clues, and controlled pacing so tension builds cleanly from the first page to the final reveal.",
   },
   {
+    id: "book-outlines",
     title: "Book Outlines and Story Development",
     description:
       "A chapter-by-chapter blueprint that solves structure problems before a single draft chapter is written.",
   },
   {
+    id: "developmental-editing",
     title: "Developmental Editing",
     description:
       "A deep read of structure, argument, pacing, and voice — with practical revision notes you can act on.",
   },
   {
+    id: "proofreading",
     title: "Book Editing and Proofreading",
     description:
       "Line-level clarity, consistency, and correctness so your manuscript reads like a professionally published book.",
   },
   {
+    id: "kdp-formatting",
     title: "KDP Formatting and Publishing Support",
     description:
       "Print and ebook files prepared to specification, with guidance through the self-publishing upload process.",

@@ -9,8 +9,7 @@ export const Route = createFileRoute("/portfolio/")({
       { title: "Ghostwriting Portfolio | Client Book Projects" },
       {
         name: "description",
-        content:
-          "Selected ghostwriting and editing projects across business, memoir, personal development, fiction, mystery and thriller — filterable by category.",
+        content: "Read case studies on manuscript development, editing and publishing preparation.",
       },
       { property: "og:title", content: "Ghostwriting Portfolio" },
       {
@@ -28,8 +27,8 @@ function PortfolioPage() {
   return (
     <PageShell
       eyebrow="Portfolio"
-      title="Selected Client Projects"
-      intro="Confidential projects are shown anonymously — genre, scope and deliverables without naming the author. Filter by category to see the work closest to your book."
+      title="Book Project Case Studies"
+      intro="See what each manuscript needed, what I worked on, and what the author received."
     >
       <PortfolioGrid />
     </PageShell>

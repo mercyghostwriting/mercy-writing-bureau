@@ -1,89 +1,50 @@
 import { Link } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
 import { projects } from "@/data/content";
 
 const published = projects.filter((project) => !project.title.includes("[Add project title]"));
-const filters = ["All", ...new Set(published.map((project) => project.category))];
 
-export function PortfolioGrid({ limit }: { limit?: number }) {
-  const [filter, setFilter] = useState<string>("All");
-
-  const visible = useMemo(() => {
-    const list = filter === "All" ? published : published.filter((p) => p.category === filter);
-    return limit ? list.slice(0, limit) : list;
-  }, [filter, limit]);
-
+export function PortfolioGrid() {
   return (
-    <div>
-      <div className="flex flex-wrap gap-2">
-        {filters.map((f) => (
-          <button
-            key={f}
-            type="button"
-            onClick={() => setFilter(f)}
-            aria-pressed={filter === f}
-            className={`rounded-full border px-4 py-1.5 text-xs tracking-wide transition-colors ${
-              filter === f
-                ? "border-accent bg-accent text-accent-foreground"
-                : "border-border text-muted-foreground hover:border-accent hover:text-accent"
-            }`}
-          >
-            {f}
-          </button>
-        ))}
-      </div>
-
-      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {visible.map((p) => (
-          <article
-            key={p.id}
-            className="group flex flex-col border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:border-accent/50"
-          >
-            {p.coverImage && (
+    <div className="grid gap-10">
+      {published.map((project) => (
+        <article
+          key={project.id}
+          className="grid gap-7 border-t border-border py-8 sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] sm:items-center sm:gap-12"
+        >
+          <div className="grid min-h-64 place-items-center bg-secondary p-7">
+            {project.coverImage ? (
               <img
-                src={p.coverImage}
-                alt={`Book cover for ${p.title}`}
+                src={project.coverImage}
+                alt={`Cover of ${project.title}`}
+                className="max-h-64 w-auto"
                 loading="lazy"
-                className="aspect-4/5 w-full border-b border-border object-cover"
               />
-            )}
-            <div className="flex flex-1 flex-col p-6">
-              <p className="text-[0.7rem] tracking-[0.18em] text-accent uppercase">{p.category}</p>
-              <h3 className="mt-2 font-display text-xl leading-snug">
-                {p.confidential ? "Confidential Project" : p.title}
-              </h3>
-              <dl className="mt-3 space-y-1 text-xs text-muted-foreground">
-                {p.author ? (
-                  <div className="flex gap-2">
-                    <dt className="font-medium text-foreground/70">Author:</dt>
-                    <dd>{p.author}</dd>
-                  </div>
-                ) : null}
-                <div className="flex gap-2">
-                  <dt className="font-medium text-foreground/70">Service:</dt>
-                  <dd>{p.service}</dd>
-                </div>
-                <div className="flex gap-2">
-                  <dt className="font-medium text-foreground/70">Length:</dt>
-                  <dd>{p.wordCount}</dd>
-                </div>
-              </dl>
-
-              <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
-                {p.summary}
-              </p>
-              <Link
-                to="/portfolio/$projectId"
-                params={{ projectId: p.id }}
-                className="mt-6 inline-flex items-center gap-2 text-[0.78rem] tracking-[0.14em] text-foreground uppercase transition-colors group-hover:text-accent"
+            ) : (
+              <div
+                aria-hidden="true"
+                className="grid aspect-[3/4] w-36 place-items-center border-4 border-double border-primary-foreground/60 bg-primary p-3 text-center font-display text-lg text-primary-foreground shadow-lg"
               >
-                View Case Study
-                <span aria-hidden>→</span>
-              </Link>
-            </div>
-          </article>
-        ))}
-      </div>
+                {project.confidential ? "Confidential Project" : project.title}
+              </div>
+            )}
+          </div>
+          <div>
+            <p className="eyebrow">{project.category}</p>
+            <h2 className="mt-3 font-display text-3xl sm:text-4xl">
+              {project.confidential ? "Confidential Project" : project.title}
+            </h2>
+            <p className="mt-3 font-semibold">{project.service}</p>
+            <p className="mt-4 leading-relaxed text-muted-foreground">{project.summary}</p>
+            <Link
+              to="/portfolio/$projectId"
+              params={{ projectId: project.id }}
+              className="editorial-link mt-5 inline-block text-primary"
+            >
+              Read case study ↗
+            </Link>
+          </div>
+        </article>
+      ))}
     </div>
   );
 }
