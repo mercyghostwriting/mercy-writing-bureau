@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/site/PageShell";
-import deskPhoto from "@/assets/mercy-desk.jpg";
 import { services } from "@/data/content";
 
 export const Route = createFileRoute("/services")({
@@ -88,12 +87,16 @@ function ServicesPage() {
         <div className="relative">
           <div className="absolute -top-4 -left-4 hidden h-full w-full border border-accent/40 sm:block" />
           <div className="relative overflow-hidden border border-border bg-secondary/40 p-3">
-            <img
-              src={deskPhoto}
-              alt="The ghostwriter behind The Wrting Bureau working at her desk"
-              loading="lazy"
-              className="h-full w-full object-cover"
-            />
+            <video
+              controls
+              playsInline
+              preload="metadata"
+              aria-label="Introduction to The Wrting Bureau"
+              className="mx-auto block aspect-[9/16] w-full max-w-[320px] bg-black"
+            >
+              <source src="/intro.mp4" type="video/mp4" />
+              <a href="/intro.mp4">Download the intro video</a>
+            </video>
           </div>
         </div>
       </div>
