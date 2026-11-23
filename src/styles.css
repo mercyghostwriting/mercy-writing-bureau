@@ -693,3 +693,29 @@
   padding: 0.5rem 0.75rem;
   font-size: 0.875rem;
 }
+
+.mercy-hero-portrait {
+  position: relative;
+  justify-self: center;
+  width: min(100%, 29rem);
+  margin: 0;
+  padding: 0.55rem;
+  border: 1px solid #b88e83;
+  background: #fffbf5;
+}
+.mercy-hero-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 23%;
+}
+.editorial-hero:has(.mercy-hero-portrait) .editorial-hero-grid {
+  padding-block: clamp(2.5rem, 6vw, 5rem);
+}
+@media (max-width: 720px) {
+  .mercy-hero-portrait {
+    width: min(100%, 24rem);
+  }
+}

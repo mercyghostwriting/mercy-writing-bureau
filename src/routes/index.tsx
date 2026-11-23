@@ -1,5 +1,4 @@
 import { PortfolioReel } from "@/components/site/PortfolioReel";
-import { useEffect, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
@@ -67,15 +66,14 @@ function Home() {
         <section className="editorial-hero">
           <div className="editorial-wrap editorial-hero-grid">
             <div className="editorial-hero-copy">
-              <p className="editorial-label">Book writing · Editing · Translation</p>
+              <p className="editorial-label">Hi, I’m Mercy.</p>
               <h1>
-                Books written
-                <br />
-                <em>in your voice.</em>
+                I write books that <em>sound like you.</em>
               </h1>
               <p>
-                Bring me the book you’ve been meaning to write, the draft you’re ready to finish, or
-                the work you want to share in another language.
+                I’m a ghostwriter, editor, and founder of The Wrting Bureau. For seven years, I’ve
+                helped authors turn notes, interviews, and unfinished drafts into books they’re
+                proud to put their names on.
               </p>
               <div className="editorial-actions">
                 <Link className="bureau-button" to="/contact">
@@ -86,7 +84,15 @@ function Home() {
                 </Link>
               </div>
             </div>
-            <HeroFilm />
+            <figure className="mercy-hero-portrait">
+              <img
+                src="/mercy-hero.webp"
+                width={800}
+                height={1066}
+                alt="Mercy wearing a white turtleneck and red glasses"
+                fetchPriority="high"
+              />
+            </figure>
           </div>
         </section>
         <section className="editorial-work">
@@ -149,49 +155,6 @@ function Home() {
         </section>
       </main>
       <SiteFooter />
-    </div>
-  );
-}
-
-function HeroFilm() {
-  const video = useRef<HTMLVideoElement>(null);
-  const [playing, setPlaying] = useState(false);
-
-  useEffect(() => {
-    const clip = video.current;
-    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const followPreference = () => {
-      if (preference.matches) clip?.pause();
-      else void clip?.play().catch(() => {});
-    };
-    followPreference();
-    preference.addEventListener("change", followPreference);
-    return () => preference.removeEventListener("change", followPreference);
-  }, []);
-
-  return (
-    <div className="editorial-film">
-      <video
-        ref={video}
-        src="/book-pages.mp4"
-        poster="/book-pages.webp"
-        preload="metadata"
-        muted
-        loop
-        playsInline
-        aria-hidden="true"
-        onPlay={() => setPlaying(true)}
-        onPause={() => setPlaying(false)}
-      />
-      <button
-        type="button"
-        onClick={() => {
-          if (playing) video.current?.pause();
-          else void video.current?.play().catch(() => {});
-        }}
-      >
-        {playing ? "Pause video" : "Play video"}
-      </button>
     </div>
   );
 }
