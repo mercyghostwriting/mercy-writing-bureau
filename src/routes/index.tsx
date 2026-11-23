@@ -153,6 +153,25 @@ function Home() {
             </Link>
           </div>
         </section>
+        <section className="editorial-wrap client-reviews" aria-labelledby="client-reviews-title">
+          <div>
+            <p className="eyebrow">Client testimonials</p>
+            <h2 id="client-reviews-title">In their own words</h2>
+            <p className="mt-5 text-muted-foreground">
+              Hear one client share her experience working with me.
+            </p>
+          </div>
+          <video
+            controls
+            playsInline
+            preload="none"
+            poster="/client-testimonial.webp"
+            aria-label="Client video testimonial"
+          >
+            <source src="/client-testimonial.mp4" type="video/mp4" />
+            <a href="/client-testimonial.mp4">Watch the client testimonial</a>
+          </video>
+        </section>
       </main>
       <SiteFooter />
     </div>

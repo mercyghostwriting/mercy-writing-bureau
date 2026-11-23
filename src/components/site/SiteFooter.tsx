@@ -14,23 +14,47 @@ const links = [
 export function SiteFooter() {
   return (
     <footer className="bureau-colophon">
+      <video
+        className="footer-books"
+        src="/footer-books.mp4"
+        poster="/footer-books.webp"
+        autoPlay
+        muted
+        playsInline
+        preload="none"
+        aria-hidden="true"
+      />
       <div className="editorial-wrap">
         <div className="bureau-footer-directory">
           <div>
-            <Link to="/" className="colophon-name">The Wrting Bureau<span>.</span></Link>
+            <Link to="/" className="colophon-name">
+              The Wrting Bureau<span>.</span>
+            </Link>
             <p className="mt-5">Ghostwriting, editing, and translation.</p>
             <ContactIcons />
           </div>
           <div>
             <h2>Services</h2>
-            <Link to="/service/$serviceId" params={{ serviceId: "nonfiction" }}>Book ghostwriting</Link>
-            <Link to="/service/$serviceId" params={{ serviceId: "developmental-editing" }}>Manuscript editing</Link>
-            <Link to="/service/$serviceId" params={{ serviceId: "translation" }}>Translation</Link>
-            <Link to="/service/$serviceId" params={{ serviceId: "kdp-formatting" }}>Book formatting</Link>
+            <Link to="/service/$serviceId" params={{ serviceId: "nonfiction" }}>
+              Book ghostwriting
+            </Link>
+            <Link to="/service/$serviceId" params={{ serviceId: "developmental-editing" }}>
+              Manuscript editing
+            </Link>
+            <Link to="/service/$serviceId" params={{ serviceId: "translation" }}>
+              Translation
+            </Link>
+            <Link to="/service/$serviceId" params={{ serviceId: "kdp-formatting" }}>
+              Book formatting
+            </Link>
           </div>
           <nav aria-label="Footer navigation">
             <h2>Explore</h2>
-            {links.map(([label, to]) => <Link key={to} to={to}>{label}</Link>)}
+            {links.map(([label, to]) => (
+              <Link key={to} to={to}>
+                {label}
+              </Link>
+            ))}
           </nav>
         </div>
         <div className="colophon-meta">
