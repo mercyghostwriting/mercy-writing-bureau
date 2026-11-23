@@ -25,7 +25,8 @@ const NAV = [
   },
   {
     label: "FAQ",
-    to: "/faq",
+    to: "/",
+    hash: "faq",
     preview: "Find answers about timelines, revisions, and confidentiality.",
   },
 ] as const;
@@ -72,6 +73,7 @@ export function SiteNav() {
             <li key={item.label} className="nav-preview-item">
               <Link
                 to={item.to}
+                hash={"hash" in item ? item.hash : undefined}
                 activeOptions={{ exact: item.to === "/" }}
                 activeProps={{ className: "text-accent" }}
                 className="text-[0.82rem] tracking-wide text-muted-foreground transition-colors hover:text-accent"
@@ -117,6 +119,7 @@ export function SiteNav() {
               <li key={item.label}>
                 <Link
                   to={item.to}
+                  hash={"hash" in item ? item.hash : undefined}
                   activeOptions={{ exact: item.to === "/" }}
                   onClick={() => setOpen(false)}
                   className="block border-b border-border/60 py-3 text-sm text-foreground"

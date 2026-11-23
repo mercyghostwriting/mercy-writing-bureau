@@ -7,7 +7,7 @@ const links = [
   ["About", "/about"],
   ["How I Work", "/process"],
   ["Portfolio", "/portfolio"],
-  ["FAQ", "/faq"],
+  ["FAQ", "/"],
   ["Contact Us", "/contact"],
 ] as const;
 
@@ -51,7 +51,7 @@ export function SiteFooter() {
           <nav aria-label="Footer navigation">
             <h2>Explore</h2>
             {links.map(([label, to]) => (
-              <Link key={to} to={to}>
+              <Link key={label} to={to} hash={label === "FAQ" ? "faq" : undefined}>
                 {label}
               </Link>
             ))}

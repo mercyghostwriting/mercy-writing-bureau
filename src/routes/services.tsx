@@ -24,6 +24,27 @@ export const Route = createFileRoute("/services")({
   }),
 });
 
+const serviceDetails: Record<string, string> = {
+  nonfiction:
+    "Bring your notes, recordings, or research. We’ll identify the reader, organize your ideas into chapters, and develop the draft around what readers need to understand.",
+  "business-books":
+    "Use examples from your own work to explain how your approach works in practice. We’ll build the book around the decisions or problems you can help readers with.",
+  memoir:
+    "We can start with interviews, journals, or fragments of a draft. Together we’ll decide which memories belong in the book and how to handle sensitive details.",
+  fiction:
+    "Bring a premise, outline, or partial draft. We’ll agree on voice, point of view, and character arcs before drafting in milestones.",
+  thrillers:
+    "I’ll track what readers know, when they learn it, and whether the clues support the reveal.",
+  "book-outlines":
+    "You’ll get a chapter plan you can draft from, with the purpose of each chapter and notes on where the story or argument needs more development.",
+  "developmental-editing":
+    "I’ll identify where the structure, pacing, or argument needs work and give you a sequence for tackling revisions.",
+  proofreading:
+    "I’ll review the prose for clarity and consistency. For a draft ready for its final pass, proofreading focuses on errors and inconsistencies.",
+  "kdp-formatting":
+    "Tell me your trim size and intended formats so we can agree on the print and ebook files you need.",
+};
+
 function ServicesPage() {
   return (
     <PageShell
@@ -31,14 +52,13 @@ function ServicesPage() {
       title="Book Writing, Editing & Translation"
       intro="Start with a book idea, a draft that needs editing, or a manuscript that’s ready for formatting or translation. Choose the service that fits the work in front of you."
     >
-      <div className="service-tiles grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+      <div className="service-essays">
         {services.map((s) => (
-          <article
-            key={s.title}
-            className="group bg-background p-8 transition-colors hover:bg-card"
-          >
+          <article key={s.title} className="group">
             <h2 className="mt-3 font-display text-2xl leading-snug">{s.title}</h2>
-            <p className="mt-3 leading-relaxed text-muted-foreground">{s.description}</p>
+            <p className="mt-3 leading-relaxed text-muted-foreground">
+              {s.description} {serviceDetails[s.id]}
+            </p>
             <Link
               to="/service/$serviceId"
               params={{ serviceId: s.id }}
@@ -50,10 +70,7 @@ function ServicesPage() {
         ))}
       </div>
 
-      <section
-        id="translation"
-        className="mt-12 scroll-mt-28 border border-border bg-secondary p-8 sm:p-12"
-      >
+      <section id="translation" className="mt-12 scroll-mt-28 border-t border-border pt-8">
         <h2 className="font-display text-4xl">Manuscript and document translation</h2>
         <p className="mt-4 max-w-2xl text-muted-foreground">
           Tell me what you’re translating, the source and target languages, the approximate word

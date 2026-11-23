@@ -297,15 +297,15 @@ export const faqs = [
   },
   {
     q: "How long does it take to complete a book?",
-    a: "Timelines depend on word count, research depth, and how quickly feedback comes back. [Add your typical turnaround range here.] Every project gets a scheduled milestone plan before writing begins.",
+    a: "Timelines depend on word count, research depth, and how quickly feedback comes back. Every project gets a scheduled milestone plan before writing begins.",
   },
   {
     q: "How are payments and milestones structured?",
-    a: "Work is split into milestones, with payment released as each milestone is approved. [Add your deposit, milestone split, and pricing details here.]",
+    a: "Work is split into milestones, with payment terms agreed in writing before work begins.",
   },
   {
     q: "How many revisions are included?",
-    a: "Revisions are built into each milestone so the manuscript stays on track rather than being reworked at the end. [Add your included revision rounds here.]",
+    a: "We agree on the number and scope of revisions before work begins. For longer projects, feedback is built into the milestones.",
   },
 ];
 
