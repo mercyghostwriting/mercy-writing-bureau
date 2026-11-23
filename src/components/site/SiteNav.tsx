@@ -63,8 +63,13 @@ export function SiteNav() {
         className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 lg:px-8"
       >
         <Link to="/" className="bureau-wordmark" aria-label="The Wrting Bureau home">
-          <span className="bureau-wordmark-prefix">The</span>
-          <span>Wrting Bureau</span>
+          <img
+            src="/bureau-logo.webp"
+            width={220}
+            height={328}
+            alt="The Writing Bureau"
+            className="bureau-logo"
+          />
         </Link>
 
         <ul className="hidden items-center gap-7 lg:flex">

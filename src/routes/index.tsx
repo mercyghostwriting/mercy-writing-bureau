@@ -64,7 +64,7 @@ function Home() {
       <SiteNav />
       <main>
         <section className="editorial-hero">
-          <div className="editorial-wrap editorial-hero-grid">
+          <div className="editorial-hero-grid portrait-hero-grid">
             <div className="editorial-hero-copy">
               <p className="editorial-label">Hi, I’m Mercy.</p>
               <h1>

@@ -31,7 +31,7 @@ function About() {
   return (
     <div className="min-h-screen bg-background">
       <SiteNav />
-      <main className="px-5 py-16 lg:px-8 lg:py-24">
+      <main className="px-5 py-16 lg:px-8 lg:pt-3 lg:pb-24">
         <div className="mx-auto max-w-6xl">
           <div className="about-spread">
             <div>
