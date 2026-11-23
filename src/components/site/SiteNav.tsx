@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 const NAV = [
-  { label: "Home", to: "/", preview: "Meet Mercy and browse selected book projects." },
+  { label: "Home", to: "/", preview: "Browse selected book projects." },
   {
     label: "Services",
     to: "/services",
@@ -62,14 +62,9 @@ export function SiteNav() {
         aria-label="Main navigation"
         className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 lg:px-8"
       >
-        <Link to="/" className="bureau-wordmark" aria-label="The Wrting Bureau home">
-          <img
-            src="/bureau-logo.webp"
-            width={220}
-            height={328}
-            alt="The Writing Bureau"
-            className="bureau-logo"
-          />
+        <Link to="/" className="bureau-wordmark" aria-label="The Writing Bureau home">
+          <img src="/bureau-mark.webp" alt="" width={54} height={67} className="bureau-symbol" />
+          <span>The Writing Bureau</span>
         </Link>
 
         <ul className="hidden items-center gap-7 lg:flex">

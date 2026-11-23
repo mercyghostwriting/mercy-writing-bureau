@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/site/PageShell";
 import seatedPhoto from "@/assets/mercy-seated.jpg";
-import { benefits, testimonials } from "@/data/content";
+import { benefits } from "@/data/content";
 
 export const Route = createFileRoute("/testimonials")({
   component: TestimonialsPage,
@@ -27,29 +27,22 @@ export const Route = createFileRoute("/testimonials")({
 
 function TestimonialsPage() {
   return (
-    <PageShell
-      eyebrow="Testimonials"
-      title="In My Clients' Words"
-      intro="Only verified client feedback appears here. Placeholders are shown until permission is confirmed."
-    >
-      <div className="grid gap-6 lg:grid-cols-3">
-        {testimonials.map((t, i) => (
-          <figure key={i} className="flex flex-col border border-border bg-card p-8">
-            <blockquote className="flex-1 font-display text-xl leading-snug text-foreground/85">
-              “{t.quote}”
-            </blockquote>
-            <figcaption className="mt-6 flex items-center gap-3 border-t border-border pt-5">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-sm text-muted-foreground">
-                {t.initials}
-              </span>
-              <span className="text-sm">
-                <span className="block text-foreground">{t.name}</span>
-                <span className="block text-xs text-muted-foreground">{t.projectType}</span>
-              </span>
-            </figcaption>
-          </figure>
-        ))}
-      </div>
+    <PageShell eyebrow="Testimonials" title="Hear it from our authors">
+      <section className="client-reviews">
+        <div>
+          <h2 className="font-display text-3xl">Kathryn Zwart</h2>
+          <p className="mt-3">Gothic personal memoir</p>
+        </div>
+        <video
+          controls
+          playsInline
+          preload="none"
+          poster="/client-testimonial.webp"
+          aria-label="Kathryn Zwart’s testimonial"
+        >
+          <source src="/client-testimonial.mp4" type="video/mp4" />
+        </video>
+      </section>
 
       <div className="mt-20 grid gap-14 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="relative">
@@ -66,7 +59,10 @@ function TestimonialsPage() {
           <h2 className="font-display text-3xl leading-tight sm:text-4xl">Why Work With Me</h2>
           <ul className="mt-8 grid gap-x-10 gap-y-5 sm:grid-cols-2">
             {benefits.map((b) => (
-              <li key={b} className="flex gap-3 border-b border-border pb-4 text-sm leading-relaxed">
+              <li
+                key={b}
+                className="flex gap-3 border-b border-border pb-4 text-sm leading-relaxed"
+              >
                 <span aria-hidden className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                 {b}
               </li>

@@ -807,3 +807,50 @@
     display: none;
   }
 }
+
+.bureau-wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+.bureau-symbol {
+  width: 3.35rem;
+  height: auto;
+  mix-blend-mode: multiply;
+}
+.portrait-hero-grid {
+  background: linear-gradient(90deg, #32282f, #656164 64%);
+}
+.portrait-hero-grid::before {
+  background: linear-gradient(90deg, #32282fee, #4c4147d6 42%, transparent 77%);
+}
+.mercy-hero-portrait {
+  z-index: 1;
+}
+.mercy-hero-portrait img {
+  max-height: none;
+  width: auto;
+  max-width: 100%;
+  height: clamp(34rem, 52vw, 53rem);
+  object-fit: contain;
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.client-reviews {
+  background: #f3e6d8;
+  padding-inline: clamp(1.25rem, 5vw, 5rem);
+  margin-block: clamp(2rem, 6vw, 5rem);
+}
+.portfolio-reel {
+  margin-top: 1.25rem;
+}
+@media (max-width: 720px) {
+  .portrait-hero-grid {
+    background: #656164;
+  }
+  .portrait-hero-grid .editorial-hero-copy {
+    background: linear-gradient(#3c3037, #656164);
+  }
+  .mercy-hero-portrait img {
+    height: min(120vw, 36rem);
+  }
+}

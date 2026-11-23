@@ -130,36 +130,16 @@ function Home() {
             ))}
           </div>
         </section>
-        <section className="editorial-wrap editorial-about">
-          <img
-            src="/mercy-about.webp"
-            width={720}
-            height={960}
-            alt="Mercy, founder of The Wrting Bureau"
-            loading="lazy"
-          />
-          <div>
-            <h2>Meet Mercy</h2>
-            <p>
-              <strong>Founder of The Wrting Bureau</strong>
-            </p>
-            <p>
-              I’ll work with you directly. We start with a written conversation about what you have,
-              who it’s for, and what you need delivered. You’ll know the scope and timeline before
-              work begins.
-            </p>
-            <Link className="editorial-link" to="/about">
-              More about Mercy ↗
-            </Link>
-          </div>
-        </section>
         <section className="editorial-wrap client-reviews" aria-labelledby="client-reviews-title">
           <div>
             <p className="eyebrow">Client testimonials</p>
-            <h2 id="client-reviews-title">In their own words</h2>
+            <h2 id="client-reviews-title">Hear it from our authors</h2>
             <p className="mt-5 text-muted-foreground">
-              Hear one client share her experience working with me.
+              Kathryn Zwart shares her experience working with me on her gothic personal memoir.
             </p>
+            <Link className="bureau-button mt-7 inline-flex" to="/testimonials">
+              See all client testimonials ↗
+            </Link>
           </div>
           <video
             controls

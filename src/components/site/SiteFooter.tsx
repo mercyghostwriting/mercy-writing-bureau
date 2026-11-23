@@ -31,7 +31,7 @@ export function SiteFooter() {
               The Wrting Bureau<span>.</span>
             </Link>
             <p className="mt-5">Ghostwriting, editing, and translation.</p>
-            <ContactIcons />
+            <ContactIcons showCall={false} />
           </div>
           <div>
             <h2>Services</h2>

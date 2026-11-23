@@ -5,7 +5,6 @@ const slots = Array.from({ length: 10 }, (_, index) => index + 1);
 
 export function PortfolioReel() {
   const track = useRef<HTMLDivElement>(null);
-  const [paused, setPaused] = useState(false);
   const [interacting, setInteracting] = useState(false);
 
   function advance(direction: number) {
@@ -26,28 +25,17 @@ export function PortfolioReel() {
   }
 
   useEffect(() => {
-    if (paused || interacting) return;
+    if (interacting) return;
     const timer = window.setInterval(() => {
       const bounds = track.current?.getBoundingClientRect();
       if (!bounds || bounds.bottom <= 0 || bounds.top >= window.innerHeight) return;
       if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) advance(1);
     }, 3300);
     return () => window.clearInterval(timer);
-  }, [paused, interacting]);
+  }, [interacting]);
 
   return (
     <div>
-      <div className="reel-controls">
-        <button type="button" onClick={() => advance(-1)} aria-label="Previous projects">
-          ←
-        </button>
-        <button type="button" onClick={() => setPaused(!paused)}>
-          {paused ? "Play reel" : "Pause reel"}
-        </button>
-        <button type="button" onClick={() => advance(1)} aria-label="Next projects">
-          →
-        </button>
-      </div>
       <div
         ref={track}
         className="portfolio-reel"
@@ -55,8 +43,10 @@ export function PortfolioReel() {
         tabIndex={0}
         onMouseEnter={() => setInteracting(true)}
         onMouseLeave={() => setInteracting(false)}
-        onFocus={() => setPaused(true)}
-        onTouchStart={() => setPaused(true)}
+        onFocus={() => setInteracting(true)}
+        onBlur={(event) => {
+          if (!event.currentTarget.contains(event.relatedTarget)) setInteracting(false);
+        }}
       >
         {slots.map((slot) => (
           <article key={slot} className="reel-card">
